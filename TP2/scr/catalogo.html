@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cba.urban - Catálogo</title>
+</head>
+<body>
+
+    <header>
+        <h1>cba.urban</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Hombres</a></li>
+                <li><a href="catalogo.html">Mujeres</a></li>
+                <li><a href="catalogo.html">Ofertas</a></li>
+                <li><a href="catalogo.html">Categorías</a></li>
+            </ul>
+        </nav>
+        <section>
+            <a href="perfil.html">Mi Perfil</a>
+            <a href="carrito.html">Carrito (1)</a>
+        </section>
+    </header>
+
+    <main>
+        <h2>Catálogo de Indumentaria</h2>
+
+        <!-- Panel de Filtros -->
+        <aside>
+            <h3>Filtros</h3>
+            <form action="catalogo.html" method="get">
+
+                <div>
+                    <label for="ordenar">Ordenar por:</label>
+                    <select id="ordenar" name="orden">
+                        <option value="mas-vendidos">Más Vendidos</option>
+                        <option value="nuevos">Más Nuevos</option>
+                        <option value="menor-precio">Menor Precio</option>
+                        <option value="mayor-precio">Mayor Precio</option>
+                    </select>
+                </div>
+
+                <fieldset>
+                    <legend>Género</legend>
+                    <input type="checkbox" id="filtro-hombres" name="genero" value="hombres">
+                    <label for="filtro-hombres">Hombres</label>
+
+                    <input type="checkbox" id="filtro-mujeres" name="genero" value="mujeres">
+                    <label for="filtro-mujeres">Mujeres</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Categorías</legend>
+                    <input type="checkbox" id="filtro-remeras" name="cat" value="remeras">
+                    <label for="filtro-remeras">Remeras</label>
+
+                    <input type="checkbox" id="filtro-pantalones" name="cat" value="pantalones">
+                    <label for="filtro-pantalones">Pantalones</label>
+
+                    <input type="checkbox" id="filtro-buzos" name="cat" value="buzos">
+                    <label for="filtro-buzos">Buzos</label>
+
+                    <input type="checkbox" id="filtro-accesorios" name="cat" value="accesorios">
+                    <label for="filtro-accesorios">Accesorios</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Talles</legend>
+                    <input type="checkbox" id="talle-s" name="talle" value="S">
+                    <label for="talle-s">S</label>
+
+                    <input type="checkbox" id="talle-m" name="talle" value="M">
+                    <label for="talle-m">M</label>
+
+                    <input type="checkbox" id="talle-l" name="talle" value="L">
+                    <label for="talle-l">L</label>
+
+                    <input type="checkbox" id="talle-xl" name="talle" value="XL">
+                    <label for="talle-xl">XL</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Precio</legend>
+                    <label for="p-min">Mínimo:</label>
+                    <input type="number" id="p-min" name="min" placeholder="0">
+
+                    <label for="p-max">Máximo:</label>
+                    <input type="number" id="p-max" name="max" placeholder="100000">
+                </fieldset>
+
+                <button type="submit">Aplicar filtros</button>
+            </form>
+        </aside>
+
+        <!-- Listado de Productos -->
+        <section>
+            <h3>Prendas</h3>
+
+            <article>
+                <img src="img/remera-belgrano.jpg" alt="Remera Belgrano Gol">
+                <h4>Remera Belgrano Gol</h4>
+                <p>$40.000</p>
+                <a href="producto.html">Ver producto</a>
+            </article>
+
+            <article>
+                <img src="img/pantalon-urban.jpg" alt="Pantalón Urban Cargo">
+                <h4>Pantalón Urban</h4>
+                <p>$20.000</p>
+                <a href="producto.html">Ver producto</a>
+            </article>
+
+            <article>
+                <img src="img/remera-urban.jpg" alt="Remera Urban Básica">
+                <h4>Remera Urban</h4>
+                <p>$20.000</p>
+                <a href="producto.html">Ver producto</a>
+            </article>
+
+            <article>
+                <img src="img/buzo-urban.jpg" alt="Buzo Urban Classic">
+                <h4>Buzo Urban</h4>
+                <p>$20.000</p>
+                <a href="producto.html">Ver producto</a>
+            </article>
+        </section>
+
+    </main>
+
+    < <footer>
+        <p>
+            <ul>
+                <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+                <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="faq.html">Preguntas Frecuentes</a></li>
+            </ul>
+            &copy; 2026 cba.urban. Todos los derechos reservados.
+
+
+        </p>
+    </footer>>
+    
+
+</body>
+</html>

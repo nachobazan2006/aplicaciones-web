@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cba.urban - Detalle de Producto</title>
+</head>
+<body>
+
+    <header>
+        <h1>cba.urban</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+            </ul>
+        </nav>
+        <section>
+            <a href="perfil.html">Mi Perfil</a>
+            <a href="carrito.html">Carrito (1)</a>
+        </section>
+    </header>
+
+    <main>
+
+        <!-- Ruta / Breadcrumbs -->
+        <nav>
+            <p><a href="index.html">Inicio</a> &gt; <a href="catalogo.html">Remeras</a> &gt; Remera Belgrano Gol</p>
+        </nav>
+
+        <article>
+            <!-- Imágenes -->
+            <section>
+                <h2>Imágenes</h2>
+                <img src="img/remera-belgrano-grande.jpg" alt="Remera Belgrano Gol vista principal">
+                <ul>
+                    <li><img src="img/remera-miniatura-1.jpg" alt="Vista espalda"></li>
+                    <li><img src="img/remera-miniatura-2.jpg" alt="Detalle cuello"></li>
+                </ul>
+            </section>
+
+            <!-- Datos y configuración de compra -->
+            <section>
+                <h2>Remera Belgrano Gol</h2>
+                <p>Precio: $40.000</p>
+                <p>3 cuotas sin interés</p>
+
+                <p>Remera urbana oversize confeccionada en algodón 24/1 peinado con estampa serigráfica.</p>
+
+                <!-- Formulario de compra -->
+                <form action="carrito.html" method="post">
+                    <div>
+                        <label for="select-color">Color:</label>
+                        <select id="select-color" name="color">
+                            <option value="celeste">Celeste</option>
+                            <option value="negro">Negro</option>
+                            <option value="blanco">Blanco</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="select-talle">Talle:</label>
+                        <select id="select-talle" name="talle">
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="input-cantidad">Cantidad:</label>
+                        <input type="number" id="input-cantidad" name="cantidad" value="1" min="1">
+                    </div>
+
+                    <button type="submit">Agregar al carrito</button>
+                </form>
+
+                <!-- Guía de medidas -->
+                <section>
+                    <h3>Tabla de Medidas</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Talle</th>
+                                <th>Ancho</th>
+                                <th>Largo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>S</td>
+                                <td>54 cm</td>
+                                <td>72 cm</td>
+                            </tr>
+                            <tr>
+                                <td>M</td>
+                                <td>56 cm</td>
+                                <td>74 cm</td>
+                            </tr>
+                            <tr>
+                                <td>L</td>
+                                <td>58 cm</td>
+                                <td>76 cm</td>
+                            </tr>
+                            <tr>
+                                <td>XL</td>
+                                <td>60 cm</td>
+                                <td>78 cm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Cálculo de Envío -->
+                <section>
+                    <h3>Calcular Envío</h3>
+                    <form action="#" method="get">
+                        <label for="cp-envio">Código Postal:</label>
+                        <input type="text" id="cp-envio" name="cp" placeholder="5000">
+                        <button type="button">Calcular</button>
+                    </form>
+                </section>
+
+            </section>
+        </article>
+
+    </main>
+
+     <footer>
+        <p>
+            <ul>
+                <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+                <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="faq.html">Preguntas Frecuentes</a></li>
+            </ul>
+            &copy; 2026 cba.urban. Todos los derechos reservados.
+
+
+        </p>
+    </footer>
+</body>
+</html>

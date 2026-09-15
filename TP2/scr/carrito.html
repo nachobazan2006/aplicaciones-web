@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cba.urban - Carrito de Compras</title>
+</head>
+<body>
+
+    <header>
+        <h1>cba.urban</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Seguir comprando</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>MI CARRITO (1)</h2>
+
+        <!-- Artículos en el carrito -->
+        <section>
+            <h3>Productos seleccionados</h3>
+
+            <article>
+                <img src="img/remera-belgrano.jpg" alt="Remera Belgrano">
+                <h4>REMERA BELGRANO (celeste, L)</h4>
+                <p>Precio: $40.000</p>
+                <form action="#" method="post">
+                    <label for="cant-art-1">Cantidad:</label>
+                    <input type="number" id="cant-art-1" name="cantidad" value="1" min="1">
+                    <button type="button">Eliminar</button>
+                </form>
+            </article>
+        </section>
+
+        <!-- Medios de envío -->
+        <section>
+            <h3>MEDIOS DE ENVÍO</h3>
+            <form action="#" method="post">
+                <label for="cp-calc">Código Postal:</label>
+                <input type="text" id="cp-calc" name="cp" value="5000">
+                <button type="button">Calcular</button>
+            </form>
+            <p>Costo de envío estimado: $3.500</p>
+        </section>
+
+        <!-- Sugeridos / Cross-selling -->
+        <section>
+            <h3>TE PUEDE INTERESAR</h3>
+
+            <article>
+                <img src="img/pantalon-cargo.jpg" alt="Pantalón Cargo">
+                <h4>PANTALÓN CARGO</h4>
+                <p>$55.000</p>
+                <button type="button">Agregar</button>
+            </article>
+
+            <article>
+                <img src="img/remera-roja.jpg" alt="Remera Roja">
+                <h4>REMERA ROJA</h4>
+                <p>$37.000</p>
+                <button type="button">Agregar</button>
+            </article>
+
+            <article>
+                <img src="img/zapas-urban.jpg" alt="Zapatillas Urban">
+                <h4>ZAPAS URBAN</h4>
+                <p>$70.000</p>
+                <button type="button">Agregar</button>
+            </article>
+        </section>
+
+        <!-- Resumen de compra y checkout -->
+        <section>
+            <h3>RESUMEN DEL PEDIDO</h3>
+            <table>
+                <tr>
+                    <td>Subtotal (sin envío):</td>
+                    <td>$40.000</td>
+                </tr>
+                <tr>
+                    <td>Envío:</td>
+                    <td>$3.500</td>
+                </tr>
+                <tr>
+                    <td>Total:</td>
+                    <td>$43.500</td>
+                </tr>
+            </table>
+
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Datos para el despacho</legend>
+
+                    <div>
+                        <label for="nom-comprador">Nombre completo:</label>
+                        <input type="text" id="nom-comprador" name="nombre">
+                    </div>
+
+                    <div>
+                        <label for="dir-comprador">Dirección de entrega:</label>
+                        <input type="text" id="dir-comprador" name="direccion">
+                    </div>
+
+                    <div>
+                        <label for="medio-pago">Método de pago:</label>
+                        <select id="medio-pago" name="pago">
+                            <option value="transferencia">Transferencia bancaria</option>
+                            <option value="tarjeta">Tarjeta de crédito / débito</option>
+                            <option value="mercadopago">Mercado Pago</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <button type="submit">INICIAR COMPRA</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            <ul>
+                <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+                <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="faq.html">Preguntas Frecuentes</a></li>
+            </ul>
+            &copy; 2026 cba.urban. Todos los derechos reservados.
+
+
+        </p>
+    </footer>
+
+</body>
+</html>
