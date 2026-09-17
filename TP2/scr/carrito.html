@@ -9,10 +9,11 @@
 
     <header>
         <h1>cba.urban</h1>
-        <nav>
+        <nav aria-label="Navegación principal">
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Seguir comprando</a></li>
+                <li><a href="carrito.html" aria-current="page">Carrito</a></li>
             </ul>
         </nav>
     </header>
@@ -28,7 +29,7 @@
                 <img src="./recursos/imageens/belgrano-campeon-urban.png" alt="Remera Belgrano">
                 <h4>REMERA BELGRANO (celeste, L)</h4>
                 <p>Precio: $40.000</p>
-                <form action="#" method="post">
+                <form action="#" method="get">
                     <label for="cant-art-1">Cantidad:</label>
                     <input type="number" id="cant-art-1" name="cantidad" value="1" min="1">
                     <button type="button">Eliminar</button>
@@ -39,7 +40,7 @@
         <!-- Medios de envío -->
         <section>
             <h3>MEDIOS DE ENVÍO</h3>
-            <form action="#" method="post">
+            <form action="#" method="get">
                 <label for="cp-calc">Código Postal:</label>
                 <input type="text" id="cp-calc" name="cp" value="5000">
                 <button type="button">Calcular</button>
@@ -66,7 +67,7 @@
             </article>
 
             <article>
-                <img src="./recursos/imageens/verde-urban.png" alt=" Remera Verde Urban">
+                <img src="./recursos/imageens/verde-urban.png" alt="Remera Verde Urban">
                 <h4>REMERA VERDE URBAN</h4>
                 <p>$70.000</p>
                 <button type="button">Agregar</button>
@@ -77,21 +78,24 @@
         <section>
             <h3>RESUMEN DEL PEDIDO</h3>
             <table>
-                <tr>
-                    <td>Subtotal (sin envío):</td>
-                    <td>$40.000</td>
-                </tr>
-                <tr>
-                    <td>Envío:</td>
-                    <td>$3.500</td>
-                </tr>
-                <tr>
-                    <td>Total:</td>
-                    <td>$43.500</td>
-                </tr>
+                <caption>Resumen del pedido de la camiseta de Belgrano</caption>
+                <tbody>
+                    <tr>
+                        <th scope="row">Subtotal (sin envío):</th>
+                        <td>$40.000</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Envío:</th>
+                        <td>$3.500</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Total:</th>
+                        <td>$43.500</td>
+                    </tr>
+                </tbody>
             </table>
 
-            <form action="#" method="get">
+            <form action="confirmacion.html" method="get">
                 <fieldset>
                     <legend>Datos para el despacho</legend>
 
@@ -122,18 +126,16 @@
     </main>
 
     <footer>
-        <p>
+        <nav aria-label="Enlaces institucionales">
             <ul>
-                <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
-                <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
-                <li><a href="faq.html">Preguntas Frecuentes</a></li>
+                <li>Política de Privacidad</li>
+                <li>Términos y Condiciones</li>
+                <li>Contacto</li>
+                <li>Sobre Nosotros</li>
+                <li>Preguntas Frecuentes</li>
             </ul>
-            &copy; 2026 cba.urban. Todos los derechos reservados.
-
-
-        </p>
+        </nav>
+        <p>&copy; 2026 cba.urban. Todos los derechos reservados.</p>
     </footer>
 
 </body>

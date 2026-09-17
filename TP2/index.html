@@ -7,10 +7,10 @@
 </head>
 <body>
 
-    <a href="index.html">cba.urban <img src="./scr/recursos/imageens/logo-urban.png" alt="foto logo uran negro"></a>
+    <a href="index.html">cba.urban <img src="./scr/recursos/imageens/logo-urban.png" alt=""></a>
 
     <!-- Barra superior de anuncios -->
-    <aside>
+    <aside aria-label="Promociones">
         <p>ENVÍOS A TODO EL PAÍS | 3 CUOTAS SIN INTERÉS</p>
     </aside>
 
@@ -19,9 +19,9 @@
         <h1>cba.urban</h1>
 
         <!-- Navegación principal -->
-        <nav>
+        <nav aria-label="Navegación principal">
             <ul>
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html" aria-current="page">Inicio</a></li>
                 <li><a href="./scr/catalogo.html">Hombres</a></li>
                 <li><a href="./scr/catalogo.html">Mujeres</a></li>
                 <li><a href="./scr/ofertas.html">Ofertas</a></li>
@@ -31,7 +31,7 @@
 
         <!-- Búsqueda y accesos de usuario -->
         <section>
-            <form action="catalogo.html" method="get">
+            <form action="./scr/catalogo.html" method="get">
                 <label for="buscar-nav">Buscar:</label>
                 <input type="search" id="buscar-nav" name="q" placeholder="Buscar prendas...">
                 <button type="submit">Buscar</button>
@@ -50,7 +50,7 @@
             <h2>MÁS VENDIDOS</h2>
             <p>Los favoritos de la semana. Estilo que marca tendencia.</p>
             <img src="./scr/recursos/imageens/buzo-gris-urban.png" alt="Buzo Urban colección semanal">
-            <p><a href="catalogo.html">Ver colección</a></p>
+            <p><a href="./scr/catalogo.html">Ver colección</a></p>
         </section>
 
         <!-- Secciones por género -->
@@ -60,13 +60,13 @@
             <article>
                 <h3>HOMBRES</h3>
                 <img src="./scr/recursos/imageens/fit-urban-hombre.png" alt="Ropa urbana para hombres">
-                <p><a href="catalogo.html">Comprar</a></p>
+                <p><a href="./scr/catalogo.html">Comprar</a></p>
             </article>
 
             <article>
                 <h3>MUJERES</h3>
                 <img src="./scr/recursos/imageens/fit-urban-mujer.png" alt="Ropa urbana para mujeres">
-                <p><a href="catalogo.html">Comprar</a></p>
+                <p><a href="./scr/catalogo.html">Comprar</a></p>
             </article>
         </section>
 
@@ -74,7 +74,7 @@
         <section>
             <h2>OFERTAS</h2>
             <p>Hasta 40% OFF en productos seleccionados</p>
-            <p><a href="ofertas.html">Ver ofertas</a></p>
+            <p><a href="./scr/ofertas.html">Ver ofertas</a></p>
         </section>
 
         <!-- Categorías destacadas -->
@@ -84,19 +84,19 @@
             <article>
                 <h3>REMERAS</h3>
                 <img src="./scr/recursos/imageens/remera-blanca-urban.png" alt="Remera Urban">
-                <p><a href="catalogo.html">Ver todo</a></p>
+                <p><a href="./scr/catalogo.html">Ver todo</a></p>
             </article>
 
             <article>
                 <h3>PANTALÓN</h3>
                 <img src="./scr/recursos/imageens/cargo-blanco-urban.png" alt="Pantalón Urban">
-                <p><a href="catalogo.html">Ver todo</a></p>
+                <p><a href="./scr/catalogo.html">Ver todo</a></p>
             </article>
 
             <article>
                 <h3>BUZOS</h3>
                 <img src="./scr/recursos/imageens/buzo-urban.png" alt="Buzo Urban">
-                <p><a href="catalogo.html">Ver todo</a></p>
+                <p><a href="./scr/catalogo.html">Ver todo</a></p>
             </article>
         </section>
 
@@ -104,22 +104,16 @@
 
     <!-- Pie de página institucional -->
     <footer>
-       
-
-         
-        <p>
+        <nav aria-label="Enlaces institucionales">
             <ul>
-                <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
-                <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
-                <li><a href="faq.html">Preguntas Frecuentes</a></li>
+                <li>Política de Privacidad</li>
+                <li>Términos y Condiciones</li>
+                <li>Contacto</li>
+                <li>Sobre Nosotros</li>
+                <li>Preguntas Frecuentes</li>
             </ul>
-            &copy; 2026 cba.urban. Todos los derechos reservados.
-
-
-        </p>
-    
+        </nav>
+        <p>&copy; 2026 cba.urban. Todos los derechos reservados.</p>
     </footer>
 
 </body>

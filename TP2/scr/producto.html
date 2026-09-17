@@ -9,7 +9,7 @@
 
     <header>
         <h1>cba.urban</h1>
-        <nav>
+        <nav aria-label="Navegación principal">
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
@@ -24,8 +24,8 @@
     <main>
 
         <!-- Ruta / Breadcrumbs -->
-        <nav>
-            <p><a href="../index.html">Inicio</a> &gt; <a href="catalogo.html">Remeras</a> &gt; Remera Belgrano Gol</p>
+        <nav aria-label="Ruta de navegación">
+            <p><a href="../index.html">Inicio</a> &gt; <a href="catalogo.html">Remeras</a> &gt; <a href="producto.html" aria-current="page">Remera Belgrano Gol</a></p>
         </nav>
 
         <article>
@@ -34,8 +34,8 @@
                 <h2>Imágenes</h2>
                 <img src="./recursos/imageens/belgrano-campeon-urban.png" alt="Remera Belgrano Gol vista principal">
                 <ul>
-                    <li><img src="./recursos/imageens/espalda-camiseta-urban.png" alt="Vista espalda"></li>
-                    <li><img src="./recursos/imageens/cuello-camiseta-urban.png" alt="Detalle cuello"></li>
+                    <li><img src="./recursos/imageens/espalda-camiseta-urban.png" alt="Espalda de la camiseta de Belgrano con Zelarayán 10"></li>
+                    <li><img src="./recursos/imageens/cuello-camiseta-urban.png" alt="Detalle del cuello de la camiseta de Belgrano"></li>
                 </ul>
             </section>
 
@@ -44,11 +44,12 @@
                 <h2>Remera Belgrano Gol</h2>
                 <p>Precio: $40.000</p>
                 <p>3 cuotas sin interés</p>
+                <p><strong>Stock disponible</strong></p>
 
                 <p>Remera urbana oversize confeccionada en algodón 24/1 peinado con estampa serigráfica.</p>
 
                 <!-- Formulario de compra -->
-                <form action="carrito.html" method="post">
+                <form action="carrito.html" method="get">
                     <div>
                         <label for="select-color">Color:</label>
                         <select id="select-color" name="color">
@@ -60,7 +61,8 @@
 
                     <div>
                         <label for="select-talle">Talle:</label>
-                        <select id="select-talle" name="talle">
+                        <select id="select-talle" name="talle" required>
+                            <option value="">Seleccionar talle</option>
                             <option value="S">S</option>
                             <option value="M">M</option>
                             <option value="L">L</option>
@@ -70,7 +72,7 @@
 
                     <div>
                         <label for="input-cantidad">Cantidad:</label>
-                        <input type="number" id="input-cantidad" name="cantidad" value="1" min="1">
+                        <input type="number" id="input-cantidad" name="cantidad" value="1" min="1" required>
                     </div>
 
                     <button type="submit">Agregar al carrito</button>
@@ -80,11 +82,12 @@
                 <section>
                     <h3>Tabla de Medidas</h3>
                     <table>
+                        <caption>Medidas de la camiseta de Belgrano por talle, en centímetros</caption>
                         <thead>
                             <tr>
-                                <th>Talle</th>
-                                <th>Ancho</th>
-                                <th>Largo</th>
+                                <th scope="col">Talle</th>
+                                <th scope="col">Ancho</th>
+                                <th scope="col">Largo</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -127,19 +130,17 @@
 
     </main>
 
-     <footer>
-        <p>
+    <footer>
+        <nav aria-label="Enlaces institucionales">
             <ul>
-                <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
-                <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
-                <li><a href="faq.html">Preguntas Frecuentes</a></li>
+                <li>Política de Privacidad</li>
+                <li>Términos y Condiciones</li>
+                <li>Contacto</li>
+                <li>Sobre Nosotros</li>
+                <li>Preguntas Frecuentes</li>
             </ul>
-            &copy; 2026 cba.urban. Todos los derechos reservados.
-
-
-        </p>
+        </nav>
+        <p>&copy; 2026 cba.urban. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>

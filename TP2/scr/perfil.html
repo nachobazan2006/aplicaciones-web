@@ -9,11 +9,12 @@
 
     <header>
         <h1>cba.urban</h1>
-        <nav>
+        <nav aria-label="Navegación principal">
             <ul>
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="../index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
                 <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="perfil.html" aria-current="page">Mi Perfil</a></li>
             </ul>
         </nav>
     </header>
@@ -24,7 +25,7 @@
         <!-- Mis Datos / Direcciones -->
         <section>
             <h3>Mis Datos y Direcciones</h3>
-            <form action="#" method="post">
+            <form action="#" method="get">
                 <div>
                     <label for="usr-nombre">Nombre y Apellido:</label>
                     <input type="text" id="usr-nombre" name="nombre" value="Martina Gonzalez">
@@ -58,13 +59,14 @@
         <section>
             <h3>Mis Pedidos</h3>
             <table>
+                <caption>Historial de pedidos de la cuenta</caption>
                 <thead>
                     <tr>
-                        <th>N° Orden</th>
-                        <th>Fecha</th>
-                        <th>Detalle</th>
-                        <th>Total</th>
-                        <th>Estado</th>
+                        <th scope="col">N° Orden</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Detalle</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Estado</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -88,19 +90,17 @@
 
     </main>
 
-     <footer>
-        <p>
+    <footer>
+        <nav aria-label="Enlaces institucionales">
             <ul>
-                <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
-                <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
-                <li><a href="faq.html">Preguntas Frecuentes</a></li>
+                <li>Política de Privacidad</li>
+                <li>Términos y Condiciones</li>
+                <li>Contacto</li>
+                <li>Sobre Nosotros</li>
+                <li>Preguntas Frecuentes</li>
             </ul>
-            &copy; 2026 cba.urban. Todos los derechos reservados.
-
-
-        </p>
+        </nav>
+        <p>&copy; 2026 cba.urban. Todos los derechos reservados.</p>
     </footer>
 
 </body>

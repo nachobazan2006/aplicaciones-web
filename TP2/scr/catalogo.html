@@ -9,13 +9,13 @@
 
     <header>
         <h1>cba.urban</h1>
-        <nav>
+        <nav aria-label="Navegación principal">
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Hombres</a></li>
                 <li><a href="catalogo.html">Mujeres</a></li>
                 <li><a href="ofertas.html">Ofertas</a></li>
-                <li><a href="catalogo.html">Categorías</a></li>
+                <li><a href="catalogo.html" aria-current="page">Categorías</a></li>
             </ul>
         </nav>
         <section>
@@ -41,6 +41,15 @@
                         <option value="mayor-precio">Mayor Precio</option>
                     </select>
                 </div>
+
+                <fieldset>
+                    <legend>Género</legend>
+                    <input type="checkbox" id="genero-hombres" name="genero" value="hombres">
+                    <label for="genero-hombres">Hombres</label>
+
+                    <input type="checkbox" id="genero-mujeres" name="genero" value="mujeres">
+                    <label for="genero-mujeres">Mujeres</label>
+                </fieldset>
 
                 <fieldset>
                     <legend>Categorías</legend>
@@ -100,40 +109,38 @@
                 <img src="./recursos/imageens/cargo-urban-negro.png" alt="Pantalón Urban Cargo">
                 <h4>Pantalón Urban negro</h4>
                 <p>$20.000</p>
-                <a href="producto.html">Ver producto</a>
+                <p>Ficha próximamente disponible</p>
             </article>
 
             <article>
                 <img src="./recursos/imageens/remera-negra-urban.png" alt="Remera Urban Básica">
                 <h4>Remera Urban</h4>
                 <p>$20.000</p>
-                <a href="producto.html">Ver producto</a>
+                <p>Ficha próximamente disponible</p>
             </article>
 
             <article>
                 <img src="./recursos/imageens/buzo-urban.png" alt="Buzo Urban Classic">
                 <h4>Buzo Urban</h4>
                 <p>$20.000</p>
-                <a href="producto.html">Ver producto</a>
+                <p>Ficha próximamente disponible</p>
             </article>
         </section>
 
     </main>
 
-    < <footer>
-        <p>
+    <footer>
+        <nav aria-label="Enlaces institucionales">
             <ul>
-                <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
-                <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
-                <li><a href="faq.html">Preguntas Frecuentes</a></li>
+                <li>Política de Privacidad</li>
+                <li>Términos y Condiciones</li>
+                <li>Contacto</li>
+                <li>Sobre Nosotros</li>
+                <li>Preguntas Frecuentes</li>
             </ul>
-            &copy; 2026 cba.urban. Todos los derechos reservados.
-
-
-        </p>
-    </footer>>
+        </nav>
+        <p>&copy; 2026 cba.urban. Todos los derechos reservados.</p>
+    </footer>
     
 
 </body>
