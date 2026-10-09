@@ -8,6 +8,7 @@
 <body>
 
     <header>
+        <a href="index.html"><img src="./recursos/imagenes/logo-urban.png" alt="Logo de el emprendimiento"></a>
         <h1>cba.urban</h1>
         <nav aria-label="Navegación principal">
             <ul>
@@ -29,7 +30,7 @@
                 <img src="./recursos/imagenes/belgrano-campeon-urban.png" alt="Remera Belgrano">
                 <h4>REMERA BELGRANO (celeste, L)</h4>
                 <p>Precio: $40.000</p>
-                <form action="#" method="get">
+                <form action="carrito.html" method="post">
                     <label for="cant-art-1">Cantidad:</label>
                     <input type="number" id="cant-art-1" name="cantidad" value="1" min="1">
                     <button type="button">Eliminar</button>
@@ -40,7 +41,7 @@
         <!-- Medios de envío -->
         <section>
             <h3>MEDIOS DE ENVÍO</h3>
-            <form action="#" method="get">
+            <form action="carrito.html" method="post">
                 <label for="cp-calc">Código Postal:</label>
                 <input type="text" id="cp-calc" name="cp" value="5000">
                 <button type="button">Calcular</button>
@@ -95,7 +96,7 @@
                 </tbody>
             </table>
 
-            <form action="confirmacion.html" method="get">
+            <form action="confirmacion.html" method="post">
                 <fieldset>
                     <legend>Datos para el despacho</legend>
 
