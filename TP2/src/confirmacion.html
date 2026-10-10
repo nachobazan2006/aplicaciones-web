@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cba.urban - Compra confirmada</title>
+    <link rel="stylesheet" href="./recursos/estilos/index.css">
+    <link rel="stylesheet" href="./recursos/estilos/confirmaciones.css">
+</head>
+<body>
+
+    <!-- Encabezado principal -->
+    <header class="encabezado-principal">
+        <a href="index.html"><img src="./recursos/imagenes/logo-urban.png" alt="Logo de el emprendimiento"></a>
+        <h1>cba.urban</h1>
+
+        <!-- Botón hamburguesa (solo se ve en celular) -->
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" aria-label="Abrir o cerrar menú">
+            <img src="./recursos/imagenes/menu-hamburguesa.svg" alt="Menú">
+        </label>
+
+        <!-- Navegación principal -->
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="./catalogo.html">Catalogo</a></li>
+                <li><a href="./ofertas.html">Ofertas</a></li>
+            </ul>
+        </nav>
+
+        <!-- Buscador -->
+        <form action="./catalogo.html" method="get">
+            <label for="buscar-nav">Buscar:</label>
+            <input type="search" id="buscar-nav" name="q" placeholder="Buscar prendas...">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <!-- Iconos de perfil y carrito -->
+        <ul>
+            <li>
+                <a href="./perfil.html">
+                    <img src="./recursos/imagenes/usuario.svg" alt="Mi perfil">
+                </a>
+            </li>
+            <li>
+                <a href="./carrito.html">
+                    <img src="./recursos/imagenes/carrito-de-compras.svg" alt="Carrito">
+                    <span>(1)</span>
+                </a>
+            </li>
+        </ul>
+    </header>
+
+    <main class="contenido-principal">
+        <h2>Compra confirmada</h2>
+        <p>¡Gracias por tu compra en cba.urban!</p>
+        <p>Número de pedido de ejemplo: <strong>#0104</strong></p>
+        <p>Total de ejemplo: <strong>$43.500</strong></p>
+        <p>Esta confirmación representa un ejemplo del flujo HTML; no se procesó una compra ni un pago real.</p>
+        <p><a href="./catalogo.html">Seguir comprando</a></p>
+    </main>
+
+    <!-- Pie de página institucional -->
+    <footer class="pie-de-pagina-principal">
+        <nav aria-label="Enlaces institucionales">
+            <ul>
+                <li>Política de Privacidad</li>
+                <li>Términos y Condiciones</li>
+                <li>Contacto</li>
+                <li>Sobre Nosotros</li>
+                <li>Preguntas Frecuentes</li>
+            </ul>
+        </nav>
+        <p>&copy; 2026 cba.urban. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

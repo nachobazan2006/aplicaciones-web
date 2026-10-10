@@ -1,0 +1,407 @@
+/* 
+   CSS GLOBAL: se usa en TODAS las páginas
+   Al final hay una parte que es solo para el index.
+   Como cada página enlaza este archivo primero, el
+   header y el footer se ven igual en todas.
+    */
+
+
+/*  BASE Y FUENTE (para todas las páginas)  */
+
+/* Cargamos la fuente Inter desde la carpeta  */
+@font-face {
+    font-family: "Inter";
+    src: url("../fuentes/Inter.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+/* El asterisco (*) elige TODOS los elementos.
+   Lo usamos para sacar los espacios que el navegador agrega solo,
+   así podemos acomodar todo nosotros desde cero.
+   box-sizing hace que el padding y el borde no agranden las cajas. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo general del texto de todo el sitio.
+   Si la fuente Inter falla, se usa la siguiente de la lista. */
+body {
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+/* Los inputs y botones no heredan la fuente solos, hay que pedírselo */
+input,
+button {
+    font-family: inherit;
+}
+
+/* Las imágenes nunca se pasan del ancho de su caja (así no se rompe en celular) */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Sacamos los puntitos de las listas, porque las usamos para menús */
+ul {
+    list-style: none;
+}
+
+a {
+    color: #000000;
+}
+
+/* Marco visible cuando alguien navega con el teclado (tecla Tab) */
+a:focus-visible {
+    outline: 2px solid #000000;
+    outline-offset: 3px;
+}
+
+
+/* ENCABEZADO (todas las páginas) */
+
+/* Barra negra con texto blanco. Va negra a propósito: el borde del logo
+   también es negro, así que el logo se ve bastante mejor.
+   flex-wrap permite que los elementos pasen a una segunda fila.
+   position: relative sirve para que el checkbox oculto quede dentro del header. */
+header.encabezado-principal {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 32px;
+    padding: 16px 24px;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Sobre fondo negro los links tienen que ser blancos para poder leerse */
+header a {
+    color: #ffffff;
+}
+
+/* LOGO: ocupa toda la primera fila y lo puse al medio.*/
+header > a {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+header > a img {
+    height: 110px;
+    width: auto;
+}
+
+/* El título (h1) y la palabra "Buscar:" no se ven en pantalla, pero los dejamos
+   en el HTML para las personas que usan lector de pantalla.
+   No usamos display:none porque eso también los esconde del lector. */
+header h1,
+header form label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+/* Menú principal: los links uno al lado del otro */
+header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 24px;
+}
+
+header nav a {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* La página donde estamos parados queda subrayada, igual que al pasar el mouse */
+header nav a:hover,
+header nav a[aria-current="page"] {
+    text-decoration: underline;
+}
+
+/* Buscador: caja de texto y botón en la misma línea */
+header form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+header input[type="search"] {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Botón del buscador: se invierten los colores */
+header button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border: 1px solid #ffffff;
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+header button:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Iconos de perfil y carrito. Usamos ">" (hijo directo) para elegir
+   solo esta lista y no la del menú, que está adentro del nav. */
+header > ul {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+header > ul a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+}
+
+/* Los iconos descargados son negros. "invert(1)" los da vuelta a blanco
+   para que se vean sobre el fondo negro. */
+header > ul img,
+header label img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+}
+
+/* MENÚ HAMBURGUESA en imagen:
+   el checkbox es una casillita que se tilda al tocar la hamburguesa.
+   Lo escondemos porque lo que se ve es el dibujo de las tres rayas. */
+header input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+/* En compu la hamburguesa no se muestra (solo en celular, más abajo) */
+header label[for="menu-toggle"] {
+    display: none;
+    cursor: pointer;
+}
+
+header label[for="menu-toggle"] img {
+    width: 28px;
+    height: 28px;
+}
+
+/* Marco blanco al navegar con teclado (el negro no se vería sobre negro) */
+header a:focus-visible,
+header input:focus-visible,
+header button:focus-visible,
+header input[type="checkbox"]:focus-visible + label {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* CELULAR */
+@media (max-width: 768px) {
+    header.encabezado-principal {
+        gap: 16px;
+    }
+
+    header > a img {
+        height: 80px;
+    }
+
+    /* Aparece la hamburguesa */
+    header label[for="menu-toggle"] {
+        display: block;
+    }
+
+    /* El menú y el buscador quedan escondidos hasta tocar la hamburguesa */
+    header nav,
+    header form {
+        display: none;
+    }
+
+    /* todo esto es para el funcionamineto del menu de hamburguesa ya que el proyecto es sin JS queda pendiente a modificar despues */
+    header input[type="checkbox"]:checked ~ nav,
+    header input[type="checkbox"]:checked ~ form {
+        display: flex;
+        width: 100%;
+        order: 1;
+    }
+
+    /* En celular el menú se muestra en vertical */
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header form input[type="search"] {
+        flex: 1;
+    }
+}
+
+
+/* CONTENIDO PRINCIPAL (todas las páginas) */
+
+/* Caja central: no pasa de 1100px de ancho y queda centrada en la pantalla */
+main.contenido-principal {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 56px;
+}
+
+/* Todos los links dentro del contenido tienen forma de botón.
+   Así no hace falta ponerle una clase a cada uno. */
+main a {
+    display: inline-block;
+    padding: 10px 24px;
+    border: 1px solid #000000;
+    background-color: #000000;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+main a:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+
+/* PIE DE PÁGINA (todas las páginas)*/
+
+/* Franja negra al final, igual que el header */
+footer.pie-de-pagina-principal {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 32px 24px;
+}
+
+/* Los enlaces institucionales en fila; si no entran, pasan a la línea de abajo */
+footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 24px;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+}
+
+footer p {
+    font-size: 0.8rem;
+}
+
+
+/* 
+   SOLO PARA EL INDEX
+   */
+
+/* Barra de anuncios de arriba de todo */
+aside {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+}
+
+/* Cada sección de la página de inicio, separada por una línea.
+   "main section" elige las secciones que están dentro del main. */
+main section {
+    padding: 56px 0;
+    text-align: center;
+    border-bottom: 1px solid #000000;
+}
+
+
+main section > h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+main section > p {
+    margin-bottom: 20px;
+}
+
+/* Imagen grande de "Más vendidos" (la que está suelta en la sección) */
+main section > img {
+    max-width: 480px;
+    margin: 24px auto;
+}
+
+/* Las secciones 2 y 4 (Géneros y Categorías) llevan tarjetas en grilla.
+   Usamos nth-of-type para elegirlas por su lugar: 2.ª y 4.ª sección.
+   "auto-fit" acomoda solo la cantidad de columnas según el ancho de la pantalla. */
+main section:nth-of-type(2),
+main section:nth-of-type(4) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 32px;
+}
+
+/* El título de esas secciones ocupa todas las columnas, para quedar arriba y centrado */
+main section:nth-of-type(2) > h2,
+main section:nth-of-type(4) > h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+/* Tarjetas: título y foto de cada prenda */
+article h3 {
+    font-size: 1.1rem;
+    margin: 12px 0;
+}
+
+/* Todas las fotos con la misma proporción (4:5) para que la grilla quede prolija */
+article img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border: 1px solid #000000;
+    margin-bottom: 16px;
+}
+
+/* Banner de ofertas (3.ª sección): colores al revés para que resalte */
+main section:nth-of-type(3) {
+    background-color: #000000;
+    color: #ffffff;
+    border-bottom: none;
+}
+
+main section:nth-of-type(3) a {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+main section:nth-of-type(3) a:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Celular: secciones más compactas */
+@media (max-width: 600px) {
+    main section {
+        padding: 40px 0;
+    }
+
+    main section > h2 {
+        font-size: 1.6rem;
+    }
+}
