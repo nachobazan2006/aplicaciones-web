@@ -1,0 +1,206 @@
+.contenido {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px 40px;
+
+}
+
+.contenido h2 {
+    grid-column: 1 / -1;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* parte izquierda */
+.productos-seleccionados {
+    grid-column: 1 / 2;
+    grid-row: 2 / 5;
+}
+
+.productos-seleccionados article {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    gap: 20px;
+    background-color: #fff;
+}
+
+.productos-seleccionados article img {
+    width: 120px;
+    height: auto;
+    background-color: #f4f4f4;
+}
+
+
+.productos-seleccionados article p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.productos-seleccionados article form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.productos-seleccionados article form input {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.productos-seleccionados article form button {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+}
+
+/* parte derecha*/
+.medios-envio,
+.te-puede-interesar,
+.resumen-pedido {
+    grid-column: 2 / 3;
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.medios-envio {
+    border-top: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.te-puede-interesar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.resumen-pedido {
+    border-bottom: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.medios-envio h3,
+.te-puede-interesar h3,
+.resumen-pedido h3 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+
+.medios-envio form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+
+.medios-envio form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.medios-envio form button {
+    padding: 10px 15px;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.te-puede-interesar {
+    display: flex;
+    gap: 15px;
+}
+
+.te-puede-interesar article {
+    background-color: #fff;
+    border: 1px solid #eee;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.te-puede-interesar article img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    background-color: #f4f4f4;
+}
+
+.te-puede-interesar article h4 {
+    margin-bottom: 5px;
+    color: #555;
+    flex: 1;
+}
+
+.te-puede-interesar article button {
+    padding: 5px;
+    background-color: #000;
+    color: #fff;
+}
+
+
+.resumen-pedido table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+}
+
+.resumen-pedido table th,
+.resumen-pedido table td {
+    padding: 12px 0;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.resumen-pedido table td {
+    text-align: right;
+    font-weight: bold;
+}
+
+
+.resumen-pedido form legend {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.resumen-pedido form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.resumen-pedido form label {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.resumen-pedido form input,
+.resumen-pedido form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.resumen-pedido form button {
+    width: 100%;
+    padding: 15px;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+}
+
+

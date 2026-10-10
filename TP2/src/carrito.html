@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cba.urban - Carrito de Compras</title>
+    <link rel="stylesheet" href="./recursos/estilos/carrito.css">
 </head>
 <body>
 
@@ -19,16 +20,16 @@
         </nav>
     </header>
 
-    <main>
+    <main class="contenido">
         <h2>MI CARRITO (1)</h2>
 
         <!-- Artículos en el carrito -->
-        <section>
+        <section class="productos-seleccionados">
             <h3>Productos seleccionados</h3>
 
             <article>
-                <img src="./recursos/imagenes/belgrano-campeon-urban.png" alt="Remera Belgrano">
-                <h4>REMERA BELGRANO (celeste, L)</h4>
+                <img src="./recursos/imagenes/campera-real-tree.png" alt="Campera real tree">
+                <h4>CAMPERA Real tree (L)</h4>
                 <p>Precio: $40.000</p>
                 <form action="carrito.html" method="post">
                     <label for="cant-art-1">Cantidad:</label>
@@ -39,7 +40,7 @@
         </section>
 
         <!-- Medios de envío -->
-        <section>
+        <section class="medios-envio">
             <h3>MEDIOS DE ENVÍO</h3>
             <form action="carrito.html" method="post">
                 <label for="cp-calc">Código Postal:</label>
@@ -50,7 +51,7 @@
         </section>
 
         <!-- Sugeridos / Cross-selling -->
-        <section>
+        <section class="te-puede-interesar">
             <h3>TE PUEDE INTERESAR</h3>
 
             <article>
@@ -76,10 +77,9 @@
         </section>
 
         <!-- Resumen de compra y checkout -->
-        <section>
+        <section class="resumen-pedido">
             <h3>RESUMEN DEL PEDIDO</h3>
             <table>
-                <caption>Resumen del pedido de la camiseta de Belgrano</caption>
                 <tbody>
                     <tr>
                         <th scope="row">Subtotal (sin envío):</th>
@@ -97,7 +97,7 @@
             </table>
 
             <form action="confirmacion.html" method="post">
-                <fieldset>
+            
                     <legend>Datos para el despacho</legend>
 
                     <div>
@@ -118,7 +118,7 @@
                             <option value="mercadopago">Mercado Pago</option>
                         </select>
                     </div>
-                </fieldset>
+                
 
                 <button type="submit">INICIAR COMPRA</button>
             </form>
