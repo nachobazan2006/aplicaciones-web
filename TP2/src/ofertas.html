@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./recursos/estilos/index.css">
+    <link rel="stylesheet" href="./recursos/estilos/ofertas.css">
     <title>cba.urban - Ofertas</title>
 </head>
 <body>
@@ -13,37 +15,34 @@
     </aside>
 
     <!-- Encabezado principal -->
-    <header>
+    <header class="encabezado-principal">
         <a href="index.html"><img src="./recursos/imagenes/logo-urban.png" alt="Logo de el emprendimiento"></a>
         <h1>cba.urban</h1>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" aria-label="Abrir o cerrar menú"><img src="./recursos/imagenes/menu-hamburguesa.svg" alt="Menú"></label>
 
         <!-- Navegación principal -->
         <nav aria-label="Navegación principal">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="catalogo.html">Hombres</a></li>
-                <li><a href="catalogo.html">Mujeres</a></li>
+                <li><a href="catalogo.html">Catalogo</a></li>
                 <li><a href="ofertas.html" aria-current="page">Ofertas</a></li>
-                <li><a href="catalogo.html">Categorías</a></li>
             </ul>
         </nav>
+        <form action="./catalogo.html" method="get">
+            <label for="buscar-nav">Buscar:</label>
+            <input type="search" id="buscar-nav" name="q" placeholder="Buscar prendas...">
+            <button type="submit">Buscar</button>
+        </form>
+        <ul>
+            <li><a href="./perfil.html"><img src="./recursos/imagenes/usuario.svg" alt="Mi perfil"></a></li>
+            <li><a href="./carrito.html"><img src="./recursos/imagenes/carrito-de-compras.svg" alt="Carrito"><span>(1)</span></a></li>
+        </ul>
 
-        <!-- Búsqueda y accesos de usuario -->
-        <section>
-            <form action="catalogo.html" method="post">
-                <label for="buscar-nav">Buscar:</label>
-                <input type="search" id="buscar-nav" name="q" placeholder="Buscar prendas...">
-                <button type="submit">Buscar</button>
-            </form>
-            <ul>
-                <li><a href="perfil.html">Mi Perfil</a></li>
-                <li><a href="carrito.html">Carrito (1)</a></li>
-            </ul>
-        </section>
     </header>
 
    
-        <main>
+        <main class="contenido-ofertas">
 
     <!-- Presentación de ofertas -->
     <section>
@@ -156,7 +155,7 @@
     
 
     <!-- Pie de página institucional -->
-    <footer>
+    <footer class="pie-de-pagina-principal">
         <nav aria-label="Enlaces institucionales">
             <ul>
                 <li>Política de Privacidad</li>

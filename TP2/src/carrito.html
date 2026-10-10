@@ -4,23 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cba.urban - Carrito de Compras</title>
+    <link rel="stylesheet" href="./recursos/estilos/index.css">
     <link rel="stylesheet" href="./recursos/estilos/carrito.css">
 </head>
 <body>
 
-    <header>
+    <header class="encabezado-principal">
         <a href="index.html"><img src="./recursos/imagenes/logo-urban.png" alt="Logo de el emprendimiento"></a>
         <h1>cba.urban</h1>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" aria-label="Abrir o cerrar menú"><img src="./recursos/imagenes/menu-hamburguesa.svg" alt="Menú"></label>
         <nav aria-label="Navegación principal">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="catalogo.html">Seguir comprando</a></li>
-                <li><a href="carrito.html" aria-current="page">Carrito</a></li>
+                <li><a href="catalogo.html">Catalogo</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+
             </ul>
         </nav>
+        <form action="./catalogo.html" method="get">
+            <label for="buscar-nav">Buscar:</label>
+            <input type="search" id="buscar-nav" name="q" placeholder="Buscar prendas...">
+            <button type="submit">Buscar</button>
+        </form>
+        <ul>
+            <li><a href="./perfil.html"><img src="./recursos/imagenes/usuario.svg" alt="Mi perfil"></a></li>
+            <li><a href="./carrito.html"><img src="./recursos/imagenes/carrito-de-compras.svg" alt="Carrito"><span>(1)</span></a></li>
+        </ul>
     </header>
 
-    <main class="contenido">
+    <main class="contenido-carrito">
         <h2>MI CARRITO (1)</h2>
 
         <!-- Artículos en el carrito -->
@@ -126,7 +139,7 @@
 
     </main>
 
-    <footer>
+    <footer class="pie-de-pagina-principal">
         <nav aria-label="Enlaces institucionales">
             <ul>
                 <li>Política de Privacidad</li>

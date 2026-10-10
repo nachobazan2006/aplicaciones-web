@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cba.urban - Catálogo</title>
+    <link rel="stylesheet" href="./recursos/estilos/index.css">
     <link rel="stylesheet" href="./recursos/estilos/catalogo.css">
 </head>
+
 <body>
 
-    <header>
+    <header class="encabezado-principal">
         <a href="index.html"><img src="./recursos/imagenes/logo-urban.png" alt="Logo de el emprendimiento"></a>
         <h1>cba.urban</h1>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" aria-label="Abrir o cerrar menú"><img src="./recursos/imagenes/menu-hamburguesa.svg" alt="Menú"></label>
         <nav aria-label="Navegación principal">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="catalogo.html">Hombres</a></li>
-                <li><a href="catalogo.html">Mujeres</a></li>
+                <li><a href="catalogo.html" aria-current="page">Catalogo</a></li>
                 <li><a href="ofertas.html">Ofertas</a></li>
-                <li><a href="catalogo.html" aria-current="page">Categorías</a></li>
             </ul>
         </nav>
-        <section>
-            <a href="perfil.html">Mi Perfil</a>
-            <a href="carrito.html">Carrito (1)</a>
-        </section>
+        <form action="./catalogo.html" method="get">
+            <label for="buscar-nav">Buscar:</label>
+            <input type="search" id="buscar-nav" name="q" placeholder="Buscar prendas...">
+            <button type="submit">Buscar</button>
+        </form>
+        <ul>
+            <li><a href="./perfil.html"><img src="./recursos/imagenes/usuario.svg" alt="Mi perfil"></a></li>
+            <li><a href="./carrito.html"><img src="./recursos/imagenes/carrito-de-compras.svg" alt="Carrito"><span>(1)</span></a></li>
+        </ul>
     </header>
 
-    <main>
+    <main class="contenido-catalogo">
         <h2>Catálogo de Indumentaria</h2>
 
-        <!-- Panel de Filtros -->
-        <aside>
+        <!-- esto deja abrir y cerrar los filtros sin javascript -->
+        <details class="filtros-catalogo">
+            <summary>Filtrar</summary>
+            <aside>
             <h3>Filtros</h3>
             <form class="formulario-catalogo" action="catalogo.html" method="post">
 
@@ -94,7 +104,8 @@
 
                 <button type="submit">Aplicar filtros</button>
             </form>
-        </aside>
+            </aside>
+        </details>
 
         <!-- Listado de Productos -->
         <section class="seccion-prendas-catalogo">
@@ -131,7 +142,7 @@
 
     </main>
 
-    <footer>
+    <footer class="pie-de-pagina-principal">
         <nav aria-label="Enlaces institucionales">
             <ul>
                 <li>Política de Privacidad</li>
@@ -143,7 +154,8 @@
         </nav>
         <p>&copy; 2026 cba.urban. Todos los derechos reservados.</p>
     </footer>
-    
+
 
 </body>
+
 </html>

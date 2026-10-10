@@ -1,197 +1,98 @@
-﻿/* Estilos exclusivos de perfil.html */
-:root {
-    color-scheme: light;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #242424;
-    background: #f5f4f1;
+/* uso una clase propia asi estos estilos no pisan el header general */
+.contenido-perfil
+{
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 0 24px;
 }
 
-* {
-    box-sizing: border-box;
+.contenido-perfil h2
+{
+    margin-bottom: 24px;
+    font-size: 2rem;
+    letter-spacing: 2px;
 }
 
-body {
-    margin: 0;
-    min-width: 320px;
+.contenido-perfil section
+{
+    margin-bottom: 24px;
+    padding: 24px;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
 }
 
-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem clamp(1rem, 5vw, 4rem);
-    background: #171717;
-    color: #fff;
-}
-
-header > a:first-child img {
-    display: block;
-    width: 64px;
-    height: 64px;
-    object-fit: contain;
-}
-
-header h1 {
-    margin: 0 auto 0 0;
-    font-size: 1.5rem;
-}
-
-header nav ul,
-footer nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.25rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-header nav a {
-    color: #fff;
-    text-decoration: none;
-}
-
-header nav a:hover,
-header nav a[aria-current="page"] {
-    color: #e8b94f;
-}
-
-main {
-    width: min(100% - 2rem, 960px);
-    margin: 2.5rem auto;
-}
-
-main > h2 {
-    margin: 0 0 1.5rem;
-    font-size: clamp(1.6rem, 4vw, 2.2rem);
-    letter-spacing: 0.08em;
-}
-
-main section {
-    margin: 0 0 1.5rem;
-    padding: clamp(1rem, 3vw, 1.75rem);
-    border: 1px solid #e1ded7;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 5px 18px rgb(0 0 0 / 5%);
-}
-
-main section h3 {
-    margin: 0 0 1.25rem;
+.contenido-perfil section h3
+{
+    margin-bottom: 20px;
     font-size: 1.25rem;
 }
 
-main form {
+.contenido-perfil form
+{
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
 }
 
-main form > div {
-    display: grid;
-    gap: 0.4rem;
+.contenido-perfil form div
+{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
-main label {
-    font-size: 0.92rem;
-    font-weight: 600;
+.contenido-perfil label
+{
+    font-weight: bold;
 }
 
-main input {
+.contenido-perfil input
+{
     width: 100%;
-    min-height: 44px;
-    padding: 0.65rem 0.75rem;
-    border: 1px solid #c9c6bf;
-    border-radius: 6px;
-    background: #fff;
-    color: inherit;
-    font: inherit;
+    min-height: 40px;
+    padding: 8px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: inherit;
 }
 
-main input:focus {
-    border-color: #9a6b13;
-    outline: 3px solid rgb(232 185 79 / 30%);
+.contenido-perfil input:focus
+{
+    border-color: #000000;
+    outline: 2px solid #cccccc;
 }
 
-main form button {
+.contenido-perfil form button
+{
     justify-self: start;
-    min-height: 44px;
-    padding: 0.7rem 1.2rem;
-    border: 0;
-    border-radius: 6px;
-    background: #171717;
-    color: #fff;
-    font: inherit;
-    font-weight: 700;
+    min-height: 40px;
+    padding: 8px 16px;
+    border: 1px solid #000000;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: inherit;
+    font-weight: bold;
     cursor: pointer;
 }
 
-main form button:hover {
-    background: #393939;
+.contenido-perfil form button:hover
+{
+    background-color: #ffffff;
+    color: #000000;
 }
 
-main section:last-child {
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-}
-
-caption {
-    padding: 0 0 0.75rem;
-    color: #666;
-    text-align: left;
-}
-
-th,
-td {
-    padding: 0.85rem 0.75rem;
-    border-bottom: 1px solid #e8e6e1;
-}
-
-th {
-    background: #f5f4f1;
-    font-size: 0.9rem;
-}
-
-footer {
-    padding: 1.5rem clamp(1rem, 5vw, 4rem);
-    background: #171717;
-    color: #eee;
-}
-
-footer nav ul {
-    justify-content: center;
-}
-
-footer p {
-    margin: 1rem 0 0;
-    color: #bbb;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-@media (max-width: 650px) {
-    header {
-        flex-wrap: wrap;
+/* en celular los campos quedan en una sola columna */
+@media (max-width: 650px)
+{
+    .contenido-perfil
+    {
+        margin: 24px auto;
+        padding: 0 16px;
     }
 
-    header h1 {
-        margin-right: auto;
-    }
-
-    header nav {
-        width: 100%;
-    }
-
-    main form {
+    .contenido-perfil form
+    {
         grid-template-columns: 1fr;
-    }
-
-    table {
-        min-width: 620px;
     }
 }

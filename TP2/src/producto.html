@@ -4,27 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cba.urban - Detalle de Producto</title>
+    <link rel="stylesheet" href="./recursos/estilos/index.css">
     <link rel="stylesheet" href="./recursos/estilos/producto.css">
 
 </head>
 <body>
 
-    <header>
+    <header class="encabezado-principal">
         <a href="index.html"><img src="./recursos/imagenes/logo-urban.png" alt="Logo de el emprendimiento"></a>
         <h1>cba.urban</h1>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" aria-label="Abrir o cerrar menú"><img src="./recursos/imagenes/menu-hamburguesa.svg" alt="Menú"></label>
         <nav aria-label="Navegación principal">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
             </ul>
         </nav>
-        <section>
-            <a href="perfil.html">Mi Perfil</a>
-            <a href="./carrito.html">Carrito (1)</a>
-        </section>
+        <form action="./catalogo.html" method="get">
+            <label for="buscar-nav">Buscar:</label>
+            <input type="search" id="buscar-nav" name="q" placeholder="Buscar prendas...">
+            <button type="submit">Buscar</button>
+        </form>
+        <ul>
+            <li><a href="./perfil.html"><img src="./recursos/imagenes/usuario.svg" alt="Mi perfil"></a></li>
+            <li><a href="./carrito.html"><img src="./recursos/imagenes/carrito-de-compras.svg" alt="Carrito"><span>(1)</span></a></li>
+        </ul>
     </header>
 
-    <main class="contenido">
+    <main class="contenido-producto">
 
         <!-- Ruta -->
         <nav class="ruta-navegacion" aria-label="Ruta de navegación">
@@ -125,7 +134,7 @@
 
     </main>
 
-    <footer>
+    <footer class="pie-de-pagina-principal">
         <nav aria-label="Enlaces institucionales">
             <ul>
                 <li>Política de Privacidad</li>

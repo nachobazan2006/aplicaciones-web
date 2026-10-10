@@ -258,6 +258,7 @@ header input[type="checkbox"]:focus-visible + label {
 /* CONTENIDO PRINCIPAL (todas las páginas) */
 
 /* Caja central: no pasa de 1100px de ancho y queda centrada en la pantalla */
+/* lo dejo con la clase del inicio asi no pisa catalogo ni ofertas */
 main.contenido-principal {
     max-width: 1100px;
     margin: 0 auto;
@@ -266,7 +267,7 @@ main.contenido-principal {
 
 /* Todos los links dentro del contenido tienen forma de botón.
    Así no hace falta ponerle una clase a cada uno. */
-main a {
+main.contenido-principal a {
     display: inline-block;
     padding: 10px 24px;
     border: 1px solid #000000;
@@ -276,7 +277,7 @@ main a {
     font-weight: 500;
 }
 
-main a:hover {
+main.contenido-principal a:hover {
     background-color: #ffffff;
     color: #000000;
 }
@@ -293,7 +294,7 @@ footer.pie-de-pagina-principal {
 }
 
 /* Los enlaces institucionales en fila; si no entran, pasan a la línea de abajo */
-footer ul {
+footer.pie-de-pagina-principal ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -302,7 +303,7 @@ footer ul {
     font-size: 0.9rem;
 }
 
-footer p {
+footer.pie-de-pagina-principal p {
     font-size: 0.8rem;
 }
 
@@ -322,25 +323,25 @@ aside {
 
 /* Cada sección de la página de inicio, separada por una línea.
    "main section" elige las secciones que están dentro del main. */
-main section {
+main.contenido-principal section {
     padding: 56px 0;
     text-align: center;
     border-bottom: 1px solid #000000;
 }
 
 
-main section > h2 {
+main.contenido-principal section > h2 {
     font-size: 2rem;
     line-height: 1.2;
     margin-bottom: 12px;
 }
 
-main section > p {
+main.contenido-principal section > p {
     margin-bottom: 20px;
 }
 
 /* Imagen grande de "Más vendidos" (la que está suelta en la sección) */
-main section > img {
+main.contenido-principal section > img {
     max-width: 480px;
     margin: 24px auto;
 }
@@ -348,28 +349,28 @@ main section > img {
 /* Las secciones 2 y 4 (Géneros y Categorías) llevan tarjetas en grilla.
    Usamos nth-of-type para elegirlas por su lugar: 2.ª y 4.ª sección.
    "auto-fit" acomoda solo la cantidad de columnas según el ancho de la pantalla. */
-main section:nth-of-type(2),
-main section:nth-of-type(4) {
+main.contenido-principal section:nth-of-type(2),
+main.contenido-principal section:nth-of-type(4) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 32px;
 }
 
 /* El título de esas secciones ocupa todas las columnas, para quedar arriba y centrado */
-main section:nth-of-type(2) > h2,
-main section:nth-of-type(4) > h2 {
+main.contenido-principal section:nth-of-type(2) > h2,
+main.contenido-principal section:nth-of-type(4) > h2 {
     grid-column: 1 / -1;
     margin-bottom: 0;
 }
 
 /* Tarjetas: título y foto de cada prenda */
-article h3 {
+main.contenido-principal article h3 {
     font-size: 1.1rem;
     margin: 12px 0;
 }
 
 /* Todas las fotos con la misma proporción (4:5) para que la grilla quede prolija */
-article img {
+main.contenido-principal article img {
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
@@ -378,30 +379,30 @@ article img {
 }
 
 /* Banner de ofertas (3.ª sección): colores al revés para que resalte */
-main section:nth-of-type(3) {
+main.contenido-principal section:nth-of-type(3) {
     background-color: #000000;
     color: #ffffff;
     border-bottom: none;
 }
 
-main section:nth-of-type(3) a {
+main.contenido-principal section:nth-of-type(3) a {
     background-color: #ffffff;
     color: #000000;
     border-color: #ffffff;
 }
 
-main section:nth-of-type(3) a:hover {
+main.contenido-principal section:nth-of-type(3) a:hover {
     background-color: #000000;
     color: #ffffff;
 }
 
 /* Celular: secciones más compactas */
 @media (max-width: 600px) {
-    main section {
+    main.contenido-principal section {
         padding: 40px 0;
     }
 
-    main section > h2 {
+    main.contenido-principal section > h2 {
         font-size: 1.6rem;
     }
 }

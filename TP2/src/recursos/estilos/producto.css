@@ -1,6 +1,7 @@
 /* ficha de producto */
 
-.contenido {
+/* le pongo nombre propio para que no choque con otras paginas */
+.contenido-producto {
     padding: 30px;
     max-width: 1200px;
     margin: 0 auto;
@@ -83,6 +84,21 @@
 .calculo-envio h3 {
     font-size: 1.2rem;
     margin-bottom: 15px;
+}
+
+/* en celular la imagen y los datos quedan uno debajo del otro */
+@media (max-width: 700px)
+{
+    .contenido-producto
+    {
+        padding: 20px 16px;
+    }
+
+    .producto-detalle
+    {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
 }
 
 .guia-medidas table {
