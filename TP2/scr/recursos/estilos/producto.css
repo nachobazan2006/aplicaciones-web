@@ -1,0 +1,100 @@
+/* ficha de producto */
+
+.contenido {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.producto-detalle {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.producto-imagenes img {
+    width: 100%;
+    height: auto;
+    background-color: #f4f4f4;
+}
+/*parte derecha de la pagina*/
+.producto-datos h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.precio {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form-compra  {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-compra select,
+.form-compra input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.form-compra button {
+    width: 100%;
+    padding: 15px;
+    background-color: #000;
+    color: #fff;
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.calculo-envio form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.calculo-envio form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.calculo-envio form button {
+    width: auto;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+}
+
+.guia-medidas,
+.calculo-envio {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+}
+
+.guia-medidas h3,
+.calculo-envio h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.guia-medidas table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.guia-medidas table th,
+.guia-medidas table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+}
+
