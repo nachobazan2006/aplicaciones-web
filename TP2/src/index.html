@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cba.urban - Inicio</title>
+    <link rel="stylesheet" href="./recursos/estilos/index.css">
 </head>
 <body>
-
-    
 
     <!-- Barra superior de anuncios -->
     <aside aria-label="Promociones">
@@ -15,9 +14,15 @@
     </aside>
 
     <!-- Encabezado principal -->
-    <header>
+    <header class="encabezado-principal">
         <a href="index.html"><img src="./recursos/imagenes/logo-urban.png" alt="Logo de el emprendimiento"></a>
         <h1>cba.urban</h1>
+
+        <!-- Botón hamburguesa (solo se ve en celular) -->
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" aria-label="Abrir o cerrar menú">
+            <img src="./recursos/imagenes/menu-hamburguesa.svg" alt="Menú">
+        </label>
 
         <!-- Navegación principal -->
         <nav aria-label="Navegación principal">
@@ -25,28 +30,33 @@
                 <li><a href="index.html" aria-current="page">Inicio</a></li>
                 <li><a href="./catalogo.html">Catalogo</a></li>
                 <li><a href="./ofertas.html">Ofertas</a></li>
-                <li><a href="./catalogo.html">Mi perfil</a></li>
-                <li><a href="./carrito.html">
-                    <img src="./recursos/imagenes/carrito.png" alt="carrito logo">
-                </a></li>
             </ul>
         </nav>
 
-        <!-- Búsqueda y accesos de usuario -->
-        <section>
-            <form action="./catalogo.html" method="post">
-                <label for="buscar-nav">Buscar:</label>
-                <input type="search" id="buscar-nav" name="q" placeholder="Buscar prendas...">
-                <button type="submit">Buscar</button>
-            </form>
-            <ul>
-                <li><a href="./perfil.html">Mi Perfil</a></li>
-                <li><a href="./carrito.html">Carrito (1)</a></li>
-            </ul>
-        </section>
+        <!-- Buscador -->
+        <form action="./catalogo.html" method="get">
+            <label for="buscar-nav">Buscar:</label>
+            <input type="search" id="buscar-nav" name="q" placeholder="Buscar prendas...">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <!-- Iconos de perfil y carrito -->
+        <ul>
+            <li>
+                <a href="./perfil.html">
+                    <img src="./recursos/imagenes/usuario.svg" alt="Mi perfil">
+                </a>
+            </li>
+            <li>
+                <a href="./carrito.html">
+                    <img src="./recursos/imagenes/carrito-de-compras.svg" alt="Carrito">
+                    <span>(1)</span>
+                </a>
+            </li>
+        </ul>
     </header>
 
-    <main>
+    <main class="contenido-principal">
 
         <!-- Bloque Más Vendidos -->
         <section>
@@ -106,7 +116,7 @@
     </main>
 
     <!-- Pie de página institucional -->
-    <footer>
+    <footer class="pie-de-pagina-principal">
         <nav aria-label="Enlaces institucionales">
             <ul>
                 <li>Política de Privacidad</li>
