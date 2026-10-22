@@ -3,6 +3,11 @@
    Al final hay una parte que es solo para el index.
    Como cada página enlaza este archivo primero, el
    header y el footer se ven igual en todas.
+
+   Correcciones del profe: las reglas del header y del footer ahora usan
+   clase (.encabezado-principal y .pie-de-pagina-principal) y las reglas de
+   tipo (genéricas) van al comienzo de la hoja, antes de las de clase.
+   Lo que se cambió quedó comentado para poder compararlo.
     */
 
 
@@ -64,14 +69,45 @@ a:focus-visible {
     outline-offset: 3px;
 }
 
+/* El cambio se hizo por la devolución del profe: se agregó esta regla genérica para
+   todos los header y footer (fondo negro y letra blanca). Antes estos dos
+   colores estaban dentro de header.encabezado-principal. Va negra a propósito:
+   el borde del logo también es negro, así que el logo se ve bastante mejor. */
+header,
+footer {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Sobre fondo negro los links tienen que ser blancos para poder leerse.
+   El cambio se hizo porque esta regla de tipo estaba más abajo, después de
+   la de clase, y se movió acá arriba con las demás de tipo. */
+header a {
+    color: #ffffff;
+}
+
+/* Marco blanco al navegar con teclado (el negro no se vería sobre negro).
+   Se movió acá arriba por ser de tipo. La parte de la hamburguesa
+   (header input[type="checkbox"]:focus-visible + label) quedó más abajo, con la clase. */
+header a:focus-visible,
+header input:focus-visible,
+header button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
 
 /* ENCABEZADO (todas las páginas) */
 
-/* Barra negra con texto blanco. Va negra a propósito: el borde del logo
-   también es negro, así que el logo se ve bastante mejor.
+/* El cambio se hizo porque el header de esta página es uno puntual y no todos
+   los header: se cambió header.encabezado-principal por solo la clase .encabezado-principal.
+   En todas las reglas de abajo también se cambió "header" por la clase, y el selector
+   anterior quedó comentado arriba de cada una.
+
    flex-wrap permite que los elementos pasen a una segunda fila.
    position: relative sirve para que el checkbox oculto quede dentro del header. */
-header.encabezado-principal {
+/* header.encabezado-principal { */
+.encabezado-principal {
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -79,32 +115,32 @@ header.encabezado-principal {
     justify-content: space-between;
     gap: 16px 32px;
     padding: 16px 24px;
-    background-color: #000000;
-    color: #ffffff;
-}
-
-/* Sobre fondo negro los links tienen que ser blancos para poder leerse */
-header a {
-    color: #ffffff;
+    /* background-color: #000000;  (pasó a la regla genérica header, footer) */
+    /* color: #ffffff;  (pasó a la regla genérica header, footer) */
 }
 
 /* LOGO: ocupa toda la primera fila y lo puse al medio.*/
-header > a {
+/* header > a { */
+.encabezado-principal > a {
     flex-basis: 100%;
     display: flex;
     justify-content: center;
 }
 
-header > a img {
+/* header > a img { */
+.encabezado-principal > a img {
     height: 110px;
     width: auto;
 }
 
 /* El título (h1) y la palabra "Buscar:" no se ven en pantalla, pero los dejamos
    en el HTML para las personas que usan lector de pantalla.
-   No usamos display:none porque eso también los esconde del lector. */
-header h1,
-header form label {
+   No usamos display:none porque eso también los esconde del lector.
+   El h1 ahora es distinto en cada página (describe la página y no la marca). */
+/* header h1,
+   header form label { */
+.encabezado-principal h1,
+.encabezado-principal form label {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -114,32 +150,38 @@ header form label {
 }
 
 /* Menú principal: los links uno al lado del otro */
-header nav ul {
+/* header nav ul { */
+.encabezado-principal nav ul {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 8px 24px;
 }
 
-header nav a {
+/* header nav a { */
+.encabezado-principal nav a {
     text-decoration: none;
     font-weight: 500;
 }
 
 /* La página donde estamos parados queda subrayada, igual que al pasar el mouse */
-header nav a:hover,
-header nav a[aria-current="page"] {
+/* header nav a:hover,
+   header nav a[aria-current="page"] { */
+.encabezado-principal nav a:hover,
+.encabezado-principal nav a[aria-current="page"] {
     text-decoration: underline;
 }
 
 /* Buscador: caja de texto y botón en la misma línea */
-header form {
+/* header form { */
+.encabezado-principal form {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-header input[type="search"] {
+/* header input[type="search"] { */
+.encabezado-principal input[type="search"] {
     padding: 8px 12px;
     font-size: 0.9rem;
     border: 1px solid #ffffff;
@@ -148,7 +190,8 @@ header input[type="search"] {
 }
 
 /* Botón del buscador: se invierten los colores */
-header button {
+/* header button { */
+.encabezado-principal button {
     padding: 8px 16px;
     font-size: 0.9rem;
     border: 1px solid #ffffff;
@@ -157,20 +200,23 @@ header button {
     cursor: pointer;
 }
 
-header button:hover {
+/* header button:hover { */
+.encabezado-principal button:hover {
     background-color: #ffffff;
     color: #000000;
 }
 
 /* Iconos de perfil y carrito. Usamos ">" (hijo directo) para elegir
    solo esta lista y no la del menú, que está adentro del nav. */
-header > ul {
+/* header > ul { */
+.encabezado-principal > ul {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-header > ul a {
+/* header > ul a { */
+.encabezado-principal > ul a {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -179,8 +225,10 @@ header > ul a {
 
 /* Los iconos descargados son negros. "invert(1)" los da vuelta a blanco
    para que se vean sobre el fondo negro. */
-header > ul img,
-header label img {
+/* header > ul img,
+   header label img { */
+.encabezado-principal > ul img,
+.encabezado-principal label img {
     width: 24px;
     height: 24px;
     filter: invert(1);
@@ -189,67 +237,77 @@ header label img {
 /* MENÚ HAMBURGUESA en imagen:
    el checkbox es una casillita que se tilda al tocar la hamburguesa.
    Lo escondemos porque lo que se ve es el dibujo de las tres rayas. */
-header input[type="checkbox"] {
+/* header input[type="checkbox"] { */
+.encabezado-principal input[type="checkbox"] {
     position: absolute;
     opacity: 0;
 }
 
 /* En compu la hamburguesa no se muestra (solo en celular, más abajo) */
-header label[for="menu-toggle"] {
+/* header label[for="menu-toggle"] { */
+.encabezado-principal label[for="menu-toggle"] {
     display: none;
     cursor: pointer;
 }
 
-header label[for="menu-toggle"] img {
+/* header label[for="menu-toggle"] img { */
+.encabezado-principal label[for="menu-toggle"] img {
     width: 28px;
     height: 28px;
 }
 
-/* Marco blanco al navegar con teclado (el negro no se vería sobre negro) */
-header a:focus-visible,
-header input:focus-visible,
-header button:focus-visible,
-header input[type="checkbox"]:focus-visible + label {
+/* Marco blanco de la hamburguesa al navegar con teclado.
+   Antes estaba junto con las otras reglas de foco (header input[type="checkbox"]:focus-visible + label). */
+.encabezado-principal input[type="checkbox"]:focus-visible + label {
     outline: 2px solid #ffffff;
     outline-offset: 3px;
 }
 
 /* CELULAR */
 @media (max-width: 768px) {
-    header.encabezado-principal {
+    /* header.encabezado-principal { */
+    .encabezado-principal {
         gap: 16px;
     }
 
-    header > a img {
+    /* header > a img { */
+    .encabezado-principal > a img {
         height: 80px;
     }
 
     /* Aparece la hamburguesa */
-    header label[for="menu-toggle"] {
+    /* header label[for="menu-toggle"] { */
+    .encabezado-principal label[for="menu-toggle"] {
         display: block;
     }
 
     /* El menú y el buscador quedan escondidos hasta tocar la hamburguesa */
-    header nav,
-    header form {
+    /* header nav,
+       header form { */
+    .encabezado-principal nav,
+    .encabezado-principal form {
         display: none;
     }
 
     /* todo esto es para el funcionamineto del menu de hamburguesa ya que el proyecto es sin JS queda pendiente a modificar despues */
-    header input[type="checkbox"]:checked ~ nav,
-    header input[type="checkbox"]:checked ~ form {
+    /* header input[type="checkbox"]:checked ~ nav,
+       header input[type="checkbox"]:checked ~ form { */
+    .encabezado-principal input[type="checkbox"]:checked ~ nav,
+    .encabezado-principal input[type="checkbox"]:checked ~ form {
         display: flex;
         width: 100%;
         order: 1;
     }
 
     /* En celular el menú se muestra en vertical */
-    header nav ul {
+    /* header nav ul { */
+    .encabezado-principal nav ul {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    header form input[type="search"] {
+    /* header form input[type="search"] { */
+    .encabezado-principal form input[type="search"] {
         flex: 1;
     }
 }
@@ -285,16 +343,21 @@ main.contenido-principal a:hover {
 
 /* PIE DE PÁGINA (todas las páginas)*/
 
-/* Franja negra al final, igual que el header */
-footer.pie-de-pagina-principal {
-    background-color: #000000;
-    color: #ffffff;
+/* Franja negra al final, igual que el header.
+   El cambio se hizo igual que con el header: se cambió footer.pie-de-pagina-principal
+   por la clase .pie-de-pagina-principal y el fondo negro con la letra blanca
+   pasaron a la regla genérica "header, footer" de arriba. */
+/* footer.pie-de-pagina-principal { */
+.pie-de-pagina-principal {
+    /* background-color: #000000; */
+    /* color: #ffffff; */
     text-align: center;
     padding: 32px 24px;
 }
 
 /* Los enlaces institucionales en fila; si no entran, pasan a la línea de abajo */
-footer.pie-de-pagina-principal ul {
+/* footer.pie-de-pagina-principal ul { */
+.pie-de-pagina-principal ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -303,7 +366,8 @@ footer.pie-de-pagina-principal ul {
     font-size: 0.9rem;
 }
 
-footer.pie-de-pagina-principal p {
+/* footer.pie-de-pagina-principal p { */
+.pie-de-pagina-principal p {
     font-size: 0.8rem;
 }
 
@@ -312,8 +376,12 @@ footer.pie-de-pagina-principal p {
    SOLO PARA EL INDEX
    */
 
-/* Barra de anuncios de arriba de todo */
-aside {
+/* Barra de anuncios de arriba de todo.
+   El cambio se hizo porque la regla "aside" (de tipo) también le llegaba al aside de
+   filtros del catálogo y le dejaba el texto blanco sobre fondo claro. Se cambió aside
+   por la clase .barra-anuncios, que se agregó en index.html y en ofertas.html. */
+/* aside { */
+.barra-anuncios {
     background-color: #000000;
     color: #ffffff;
     text-align: center;
