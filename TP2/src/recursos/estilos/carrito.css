@@ -228,4 +228,20 @@
     }
 }
 
+.mensaje-carrito-vacio
+{
+    padding: 24px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-size: 1.05rem;
+    color: #25231f;
+}
+
+.mensaje-carrito-vacio a
+{
+    color: #000;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 

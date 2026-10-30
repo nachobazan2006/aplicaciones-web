@@ -6,6 +6,7 @@
     <title>cba.urban - Mi Perfil</title>
     <link rel="stylesheet" href="./recursos/estilos/index.css">
     <link rel="stylesheet" href="./recursos/estilos/perfil.css">
+    <script type="module" src="./recursos/js/carrito.js"></script>
 </head>
 <body>
 
@@ -19,6 +20,7 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catalogo</a></li>
                 <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
         <form action="./catalogo.html" method="get">
@@ -28,7 +30,7 @@
         </form>
         <ul>
             <li><a href="./perfil.html"><img src="./recursos/imagenes/usuario.svg" alt="Mi perfil"></a></li>
-            <li><a href="./carrito.html"><img src="./recursos/imagenes/carrito-de-compras.svg" alt="Carrito"><span>(1)</span></a></li>
+            <li><a href="./carrito.html"><img src="./recursos/imagenes/carrito-de-compras.svg" alt="Carrito"><span id="productos-seleccionados">(0)</span></a></li>
         </ul>
     </header>
 
@@ -108,7 +110,7 @@
             <ul>
                 <li>Política de Privacidad</li>
                 <li>Términos y Condiciones</li>
-                <li>Contacto</li>
+                <li><a href="contacto.html">Contacto</a></li>
                 <li>Sobre Nosotros</li>
                 <li>Preguntas Frecuentes</li>
             </ul>

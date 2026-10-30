@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cba.urban - Consulta enviada</title>
+    <link rel="stylesheet" href="./recursos/estilos/index.css">
+    <link rel="stylesheet" href="./recursos/estilos/confirmaciones.css">
+    <script type="module" src="./recursos/js/carrito.js"></script>
+</head>
+
+<body>
+
+
+    <header class="encabezado-principal">
+        <a href="index.html"><img src="./recursos/imagenes/logo-urban.png" alt="Logo de el emprendimiento"></a>
+        <h1>Consulta enviada con éxito</h1>
+
+        <!-- menu hamburguesa -->
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" aria-label="Abrir o cerrar menú">
+            <img src="./recursos/imagenes/menu-hamburguesa.svg" alt="Menú">
+        </label>
+
+        
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="./catalogo.html">Catalogo</a></li>
+                <li><a href="./ofertas.html">Ofertas</a></li>
+                <li><a href="./contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        
+        <form action="./catalogo.html" method="get">
+            <label for="buscar-nav">Buscar:</label>
+            <input type="search" id="buscar-nav" name="q" placeholder="Buscar prendas...">
+            <button type="submit">Buscar</button>
+        </form>
+
+        
+        <ul>
+            <li>
+                <a href="./perfil.html">
+                    <img src="./recursos/imagenes/usuario.svg" alt="Mi perfil">
+                </a>
+            </li>
+            <li>
+                <a href="./carrito.html">
+                    <img src="./recursos/imagenes/carrito-de-compras.svg" alt="Carrito">
+                    <span id="productos-seleccionados">(0)</span>
+                </a>
+            </li>
+        </ul>
+    </header>
+
+    <main class="contenido-confirmacion">
+        <h2>Consulta enviada</h2>
+        <p>¡Gracias por comunicarte con cba.urban!</p>
+        <p>Hemos recibido tu consulta correctamente. Te responderemos al correo proporcionado en las próximas 24 horas hábiles.</p>
+        <p>Horario de atención: Lunes a Viernes de 9:00 a 18:00 hs.</p>
+        <p><a href="./index.html">Volver al inicio</a></p>
+    </main>
+
+   
+    <footer class="pie-de-pagina-principal">
+        <nav aria-label="Enlaces institucionales">
+            <ul>
+                <li>Política de Privacidad</li>
+                <li>Términos y Condiciones</li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li>Sobre Nosotros</li>
+                <li>Preguntas Frecuentes</li>
+            </ul>
+        </nav>
+        <p>&copy; 2026 cba.urban. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+
+</html>

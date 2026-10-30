@@ -6,13 +6,13 @@
     <title>cba.urban - Detalle de Producto</title>
     <link rel="stylesheet" href="./recursos/estilos/index.css">
     <link rel="stylesheet" href="./recursos/estilos/producto.css">
-
+    <script type="module" src="./recursos/js/carrito.js"></script>
 </head>
 <body>
 
     <header class="encabezado-principal">
         <a href="index.html"><img src="./recursos/imagenes/logo-urban.png" alt="Logo de el emprendimiento"></a>
-        <h1>Detalle del producto: Campera Real Tree</h1>
+        <h1 id="titulo-detalle-h1">Detalle del producto</h1>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" aria-label="Abrir o cerrar menú"><img src="./recursos/imagenes/menu-hamburguesa.svg" alt="Menú"></label>
         <nav aria-label="Navegación principal">
@@ -20,6 +20,7 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
                 <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
         <form action="./catalogo.html" method="get">
@@ -29,7 +30,7 @@
         </form>
         <ul>
             <li><a href="./perfil.html"><img src="./recursos/imagenes/usuario.svg" alt="Mi perfil"></a></li>
-            <li><a href="./carrito.html"><img src="./recursos/imagenes/carrito-de-compras.svg" alt="Carrito"><span>(1)</span></a></li>
+            <li><a href="./carrito.html"><img src="./recursos/imagenes/carrito-de-compras.svg" alt="Carrito"><span id="productos-seleccionados">(0)</span></a></li>
         </ul>
     </header>
 
@@ -37,99 +38,12 @@
 
         <!-- Ruta -->
         <nav class="ruta-navegacion" aria-label="Ruta de navegación">
-            <p><a href="index.html">Inicio</a> &gt; <a href="catalogo.html">Prendas</a> &gt; <a href="producto.html" aria-current="page">Campera real tree</a></p>
+            <p><a href="index.html">Inicio</a> &gt; <a href="catalogo.html">Prendas</a> &gt; <span id="ruta-producto" aria-current="page">Detalle</span></p>
         </nav>
 
-        <article class="producto-detalle">
-            <!-- Imágenes -->
-            <section class="producto-imagenes">
-                
-                <img src="./recursos/imagenes/campera-real-tree.png" alt="Campera real tree ficha de producto">
-
-            </section>
-
-            <!-- Datos y configuración de compra -->
-            <section class="producto-datos">
-                <h2>Campera Real tree</h2>
-                <p class="precio">Precio: $40.000</p>
-                <p class="cuotas">3 cuotas sin interés</p>
-                <p ><strong>Stock disponible</strong></p>
-
-                <p class="descripcion">Descripcion: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, aliquam!.</p>
-
-                <!-- Formulario de compra -->
-                <form class="form-compra" action="carrito.html" method="post">
-                    
-                    <label for="select-color">Color:</label>
-                    <select id="select-color" name="color">
-                        <option value="celeste">Celeste</option>
-                        <option value="negro">Negro</option>
-                        <option value="blanco">Blanco</option>
-                    </select>
-                    
-                    <label for="select-talle">Talle:</label>
-                    <select id="select-talle" name="talle" required>
-                        <option value="">Seleccionar talle</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                    </select>
-                    
-                    <label for="input-cantidad">Cantidad:</label>
-                    <input type="number" id="input-cantidad" name="cantidad" value="1" min="1" required>
-                    
-                    <button type="submit">Agregar al carrito</button>
-                </form>
-
-                <!-- Guía de medidas -->
-                <section class="guia-medidas">
-                    <h3>Tabla de Medidas</h3>
-                    <table>
-                        <caption>Medidas en centímetros</caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">Talle</th>
-                                <th scope="col">Ancho</th>
-                                <th scope="col">Largo</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>S</td>
-                                <td>54 cm</td>
-                                <td>72 cm</td>
-                            </tr>
-                            <tr>
-                                <td>M</td>
-                                <td>56 cm</td>
-                                <td>74 cm</td>
-                            </tr>
-                            <tr>
-                                <td>L</td>
-                                <td>58 cm</td>
-                                <td>76 cm</td>
-                            </tr>
-                            <tr>
-                                <td>XL</td>
-                                <td>60 cm</td>
-                                <td>78 cm</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-
-                <!-- Cálculo de Envío -->
-                <section class="calculo-envio">
-                    <h3>Calcular Envío</h3>
-                    <form class="form-envio" action="producto.html" method="post">
-                        <label for="cp-envio">Código Postal:</label>
-                        <input type="text" id="cp-envio" name="cp" placeholder="5000">
-                        <button type="button">Calcular</button>
-                    </form>
-                </section>
-
-            </section>
+        <!-- Contenedor dinamico de la ficha del producto seleccionado -->
+        <article id="contenedor-detalle-producto" class="producto-detalle">
+            <!-- Se renderiza dinamicamente via javascript -->
         </article>
 
     </main>
@@ -139,7 +53,7 @@
             <ul>
                 <li>Política de Privacidad</li>
                 <li>Términos y Condiciones</li>
-                <li>Contacto</li>
+                <li><a href="contacto.html">Contacto</a></li>
                 <li>Sobre Nosotros</li>
                 <li>Preguntas Frecuentes</li>
             </ul>
