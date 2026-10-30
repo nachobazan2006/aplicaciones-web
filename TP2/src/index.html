@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cba.urban - Inicio</title>
+    <link rel="stylesheet" href="./recursos/estilos/index.css">
+    <script type="module" src="./recursos/js/carrito.js"></script>
+</head>
+<body>
+
+    <!-- Barra superior de anuncios -->
+     <aside class="barra-anuncios" aria-label="Promociones">
+        <p>ENVÍOS A TODO EL PAÍS | 3 CUOTAS SIN INTERÉS</p>
+    </aside>
+
+    
+    <header class="encabezado-principal">
+        <a href="index.html"><img src="./recursos/imagenes/logo-urban.png" alt="Logo de el emprendimiento"></a>
+        <h1>Inicio: ropa urbana, ofertas y categorías</h1>
+
+        <!-- menu hamburguesa -->
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" aria-label="Abrir o cerrar menú">
+            <img src="./recursos/imagenes/menu-hamburguesa.svg" alt="Menú">
+        </label>
+
+       
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html" aria-current="page">Inicio</a></li>
+                <li><a href="./catalogo.html">Catalogo</a></li>
+                <li><a href="./ofertas.html">Ofertas</a></li>
+                <li><a href="./contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <form action="./catalogo.html" method="get">
+            <label for="buscar-nav">Buscar:</label>
+            <input type="search" id="buscar-nav" name="q" placeholder="Buscar prendas...">
+            <button type="submit">Buscar</button>
+        </form>
+
+        
+        <ul>
+            <li>
+                <a href="./perfil.html">
+                    <img src="./recursos/imagenes/usuario.svg" alt="Mi perfil">
+                </a>
+            </li>
+            <li>
+                <a href="./carrito.html">
+                    <img src="./recursos/imagenes/carrito-de-compras.svg" alt="Carrito">
+                    <span id="productos-seleccionados">(0)</span>
+                </a>
+            </li>
+        </ul>
+    </header>
+
+    <main class="contenido-principal">
+
+        <!-- mas vendidos -->
+        <section>
+            <h2>MÁS VENDIDOS</h2>
+            <p>Los favoritos de la semana. Estilo que marca tendencia.</p>
+            <img src="./recursos/imagenes/buzo-gris-urban.png" alt="Buzo Urban colección semanal">
+            <p><a href="./catalogo.html">Ver colección</a></p>
+        </section>
+
+        <!-- secciones por genero -->
+        <section>
+            <h2>Géneros</h2>
+
+            <article>
+                <h3>HOMBRES</h3>
+                <img src="./recursos/imagenes/fit-urban-hombre.png" alt="Ropa urbana para hombres">
+                <p><a href="./catalogo.html">Comprar</a></p>
+            </article>
+
+            <article>
+                <h3>MUJERES</h3>
+                <img src="./recursos/imagenes/fit-urban-mujer.png" alt="Ropa urbana para mujeres">
+                <p><a href="./catalogo.html">Comprar</a></p>
+            </article>
+        </section>
+
+        <!-- Banner de Ofertas -->
+        <section>
+            <h2>OFERTAS</h2>
+            <p>Hasta 40% OFF en productos seleccionados</p>
+            <p><a href="./ofertas.html">Ver ofertas</a></p>
+        </section>
+
+        <!-- Categorías destacadas -->
+        <section>
+            <h2>Categorías</h2>
+
+            <article>
+                <h3>REMERAS</h3>
+                <img src="./recursos/imagenes/remera-blanca-urban.png" alt="Remera Urban">
+                <p><a href="./catalogo.html">Ver todo</a></p>
+            </article>
+
+            <article>
+                <h3>PANTALÓN</h3>
+                <img src="./recursos/imagenes/cargo-blanco-urban.png" alt="Pantalón Urban">
+                <p><a href="./catalogo.html">Ver todo</a></p>
+            </article>
+
+            <article>
+                <h3>BUZOS</h3>
+                <img src="./recursos/imagenes/buzo-urban.png" alt="Buzo Urban">
+                <p><a href="./catalogo.html">Ver todo</a></p>
+            </article>
+        </section>
+
+    </main>
+
+    <footer class="pie-de-pagina-principal">
+        <nav aria-label="Enlaces institucionales">
+            <ul>
+                <li>Política de Privacidad</li>
+                <li>Términos y Condiciones</li>
+                <li><a href="./contacto.html">Contacto</a></li>
+                <li>Sobre Nosotros</li>
+                <li>Preguntas Frecuentes</li>
+            </ul>
+        </nav>
+        <p>&copy; 2026 cba.urban. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
