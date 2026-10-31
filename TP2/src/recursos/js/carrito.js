@@ -1,3 +1,4 @@
+
 import { productosUrban } from './productos.js'
 import {
     obtenerCarrito,
@@ -7,15 +8,21 @@ import {
     obtenerIdProductoSeleccionado
 } from './funciones.js'
 
-// 1. Actualizar el contador del carrito en el header (común a cualquier página que cargue carrito.js)
+// Mostrar cuántas unidades hay en el carrito (en el encabezado).
 const productosSeleccionados = document.getElementById('productos-seleccionados')
-const carritoActual = obtenerCarrito()
-if (productosSeleccionados) {
-    productosSeleccionados.textContent = `(${carritoActual.length})`
+
+function actualizarContador() {
+    if (productosSeleccionados) {
+        const carrito = obtenerCarrito()
+        productosSeleccionados.textContent = `(${carrito.length})`
+    }
 }
 
-// 2. Si estamos en la página de detalle de producto (producto.html), renderizar el producto seleccionado
+actualizarContador()
+
+// PÁGINA DE DETALLE: mostrar el producto seleccionado y permitir agregarlo.
 const contenedorDetalle = document.getElementById('contenedor-detalle-producto')
+
 if (contenedorDetalle) {
     const idSeleccionado = obtenerIdProductoSeleccionado()
     const producto = productosUrban.find((item) => {
@@ -24,38 +31,42 @@ if (contenedorDetalle) {
 
     if (producto) {
         renderizarDetalleProducto(contenedorDetalle, producto)
-    }
 
-    // Asociar evento de compra al formulario dinámicamente renderizado
-    const formCompra = document.querySelector('.form-compra')
-    if (formCompra) {
-        formCompra.addEventListener('submit', (evento) => {
-            const inputCantidad = document.getElementById('input-cantidad')
-            let cantidad = 1
-            if (inputCantidad) {
-                cantidad = parseInt(inputCantidad.value)
-            }
-            if (isNaN(cantidad) || cantidad < 1) {
-                cantidad = 1
-            }
+        // El formulario se crea dentro de renderizarDetalleProducto().
+        const formCompra = document.querySelector('.form-compra')
 
-            let idProducto = producto ? producto.id : 1
-            const botonAgregar = document.getElementById('boton-agregar-detalle')
-            if (botonAgregar && botonAgregar.dataset.id) {
-                idProducto = parseInt(botonAgregar.dataset.id)
-            }
+        if (formCompra) {
+            formCompra.addEventListener('submit', (evento) => {
+                evento.preventDefault()
 
-            const carrito = obtenerCarrito()
-            for (let i = 0; i < cantidad; i++) {
-                carrito.push(idProducto)
-            }
-            guardarCarrito(carrito)
-        })
+                const inputCantidad = document.getElementById('input-cantidad')
+                const cantidad = Number(inputCantidad.value)
+
+                if (!Number.isInteger(cantidad) || cantidad < 1) {
+                    alert('Ingresá una cantidad válida.')
+                    return
+                }
+
+                const carrito = obtenerCarrito()
+
+                // Guardamos el ID tantas veces como unidades pidió el usuario.
+                for (let i = 0; i < cantidad; i++) {
+                    carrito.push(producto.id)
+                }
+
+                guardarCarrito(carrito)
+                actualizarContador()
+                window.location.href = 'carrito.html'
+            })
+        }
+    } else {
+        contenedorDetalle.textContent = 'No encontramos el producto seleccionado.'
     }
 }
 
-// 3. Si estamos en la página del carrito (carrito.html)
+// PÁGINA DEL CARRITO: mostrar los productos y calcular el total.
 const contenedorCarrito = document.getElementById('contenedor-carrito')
+
 if (contenedorCarrito) {
     const tituloCarrito = document.getElementById('titulo-carrito')
     const resumenSubtotal = document.getElementById('resumen-subtotal')
@@ -65,24 +76,22 @@ if (contenedorCarrito) {
     const formCheckout = document.getElementById('form-checkout')
 
     function renderizarPaginaCarrito() {
-        let productosEnCarro = obtenerCarrito()
+        const carrito = obtenerCarrito()
+        actualizarContador()
 
-        // Actualizamos contador en el header y título principal
-        if (productosSeleccionados) {
-            productosSeleccionados.textContent = `(${productosEnCarro.length})`
-        }
         if (tituloCarrito) {
-            tituloCarrito.textContent = `MI CARRITO (${productosEnCarro.length})`
+            tituloCarrito.textContent = `MI CARRITO (${carrito.length})`
         }
 
-        // Si el carrito está vacío
-        if (productosEnCarro.length === 0) {
+        // Mostrar un mensaje y totales en cero si no hay productos.
+        if (carrito.length === 0) {
             contenedorCarrito.innerHTML = `
                 <p class="mensaje-carrito-vacio">
-                    Tu carrito está actualmente vacío. Podés explorar nuestras prendas en el 
+                    Tu carrito está actualmente vacío. Podés explorar nuestras prendas en el
                     <a href="catalogo.html">Catálogo</a>.
                 </p>
             `
+
             if (resumenSubtotal) resumenSubtotal.textContent = '$0'
             if (resumenEnvio) resumenEnvio.textContent = '$0'
             if (resumenTotal) resumenTotal.textContent = '$0'
@@ -90,9 +99,9 @@ if (contenedorCarrito) {
             return
         }
 
-        // Si tiene productos: agrupamos IDs únicos para contar cantidades
+        // Crear un arreglo con IDs sin repetir.
         const productosUnicos = []
-        productosEnCarro.forEach((id) => {
+        carrito.forEach((id) => {
             if (!productosUnicos.includes(id)) {
                 productosUnicos.push(id)
             }
@@ -107,31 +116,34 @@ if (contenedorCarrito) {
             })
 
             if (producto) {
-                const cantidad = productosEnCarro.filter((itemId) => {
+                // Contar las veces que aparece el ID (cantidad comprada).
+                const cantidad = carrito.filter((itemId) => {
                     return itemId === id
                 }).length
 
-                subtotal = subtotal + (producto.precio * cantidad)
+                subtotal += producto.precio * cantidad
 
                 carritoHTML += `
-                <article>
-                    <img src="${producto.imagen}" alt="${producto.nombre}">
-                    <div>
-                        <h4>${producto.nombre}</h4>
-                        <p>Precio unitario: $${producto.precio}</p>
-                    </div>
-                    <form action="#" method="get">
-                        <label for="cant-art-${producto.id}">Cantidad:</label>
-                        <input type="number" id="cant-art-${producto.id}" name="cantidad" value="${cantidad}" min="1" readonly>
-                        <button type="button" class="boton-eliminar" data-id="${producto.id}">Eliminar</button>
-                    </form>
-                </article>
+                    <article>
+                        <img src="${producto.imagen}" alt="${producto.nombre}">
+                        <div>
+                            <h4>${producto.nombre}</h4>
+                            <p>Precio unitario: $${producto.precio}</p>
+                        </div>
+                        <div>
+                            <span>Cantidad: ${cantidad}</span>
+                            <button type="button" class="boton-eliminar" data-id="${producto.id}">
+                                Eliminar producto
+                            </button>
+                        </div>
+                    </article>
                 `
             }
         })
 
         contenedorCarrito.innerHTML = carritoHTML
 
+        // Por ahora, el envío es fijo para cualquier carrito no vacío.
         const costoEnvio = 3500
         const total = subtotal + costoEnvio
 
@@ -140,51 +152,63 @@ if (contenedorCarrito) {
         if (resumenTotal) resumenTotal.textContent = `$${total}`
         if (costoEnvioTexto) costoEnvioTexto.textContent = `Costo de envío estimado: $${costoEnvio}`
 
-        // Escuchadores para los botones Eliminar
+        // Eliminar todas las unidades del producto seleccionado.
         const botonesEliminar = contenedorCarrito.querySelectorAll('.boton-eliminar')
         botonesEliminar.forEach((boton) => {
-            boton.addEventListener('click', (evento) => {
-                const idAEliminar = parseInt(boton.dataset.id)
-                productosEnCarro = productosEnCarro.filter((id) => {
+            boton.addEventListener('click', () => {
+                const idAEliminar = Number(boton.dataset.id)
+                const nuevoCarrito = obtenerCarrito().filter((id) => {
                     return id !== idAEliminar
                 })
-                guardarCarrito(productosEnCarro)
+
+                guardarCarrito(nuevoCarrito)
                 renderizarPaginaCarrito()
             })
         })
     }
 
-    // Escuchadores para los botones de productos sugeridos ("TE PUEDE INTERESAR")
+    // Botones de productos sugeridos: agregar una unidad al carrito.
     const botonesSugeridos = document.querySelectorAll('.boton-sugerido')
     botonesSugeridos.forEach((boton) => {
-        boton.addEventListener('click', (evento) => {
-            const idSugerido = parseInt(boton.dataset.id)
-            let carritoActualizado = obtenerCarrito()
-            carritoActualizado.push(idSugerido)
-            guardarCarrito(carritoActualizado)
-            renderizarPaginaCarrito()
+        boton.addEventListener('click', () => {
+            const idSugerido = Number(boton.dataset.id)
+            const producto = productosUrban.find((item) => {
+                return item.id === idSugerido
+            })
+
+            if (producto) {
+                const carrito = obtenerCarrito()
+                carrito.push(producto.id)
+                guardarCarrito(carrito)
+                renderizarPaginaCarrito()
+            }
         })
     })
 
-    // Validación al enviar el pedido
+    // La confirmación solo debe vaciar el carrito después de enviar el formulario.
     if (formCheckout) {
         formCheckout.addEventListener('submit', (evento) => {
-            const carritoActualizado = obtenerCarrito()
-            if (carritoActualizado.length === 0) {
+            if (obtenerCarrito().length === 0) {
                 evento.preventDefault()
-                alert('Tu carrito está actualmente vacío. Por favor selecciona alguna prenda del catálogo antes de comprar.')
+                alert('Tu carrito está vacío. Agregá un producto antes de continuar.')
+                return
             }
+
+            // Marca una confirmación pendiente para la página siguiente.
+            sessionStorage.setItem('pedidoConfirmado', 'si')
         })
     }
 
     renderizarPaginaCarrito()
 }
 
-// 4. Si estamos en la página de confirmación de compra (confirmacion.html), vaciar el carrito
+// PÁGINA DE CONFIRMACIÓN: vaciar solo después de enviar un pedido.
 const confirmacionCompra = document.getElementById('confirmacion-compra')
+
 if (confirmacionCompra) {
-    vaciarCarrito()
-    if (productosSeleccionados) {
-        productosSeleccionados.textContent = '(0)'
+    if (sessionStorage.getItem('pedidoConfirmado') === 'si') {
+        vaciarCarrito()
+        sessionStorage.removeItem('pedidoConfirmado')
+        actualizarContador()
     }
 }
