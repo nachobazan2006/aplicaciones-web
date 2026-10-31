@@ -1,214 +1,85 @@
 function renderizarCatalogo(contenedor, productos) {
-    let productosHTML = ''
-
-    productos.forEach((producto) => {
-        productosHTML += `
-        <article class="articulo-catalogo">
-            <img class="imagen-catalogo" src="${producto.imagen}" alt="${producto.nombre}">
-            <h4>${producto.nombre}</h4>
-            <p>$${producto.precio}</p>
-            <a href="producto.html?id=${producto.id}" class="enlace-ver-producto" data-id="${producto.id}">Ver producto</a>
-            <button class="boton-agregar-producto" data-id="${producto.id}">Añadir al carro</button>
-        </article>
-        `
-    })
-
-    contenedor.innerHTML = productosHTML
-}
-
-function filtrarPorTalle(productos, talle) {
-    return productos.filter((producto) => {
-        return producto.talles.includes(talle.toUpperCase())
-    })
-}
-
-function filtrarPorCategoria(productos, categoria) {
-    return productos.filter((producto) => {
-        return producto.categoria === categoria.toLowerCase()
-    })
-}
-
-function filtrarPorPrecio(productos, precioMaximo) {
-    return productos.filter((producto) => {
-        return producto.precio <= precioMaximo
-    })
-}
-
-// Bucle para renderizar la ficha de detalle de un producto específico
-function renderizarDetalleProducto(contenedor, producto) {
-    if (!contenedor || !producto) {
+    if (!contenedor) return
+    if (!productos.length) {
+        contenedor.innerHTML = '<p>No hay productos que coincidan con la búsqueda.</p>'
         return
     }
 
-    // Bucle para los talles disponibles de la prenda seleccionada
-    let opcionesTalles = '<option value="">Seleccionar talle</option>'
-    producto.talles.forEach((talle) => {
-        opcionesTalles += `<option value="${talle}">${talle}</option>`
+    contenedor.innerHTML = productos.map((producto) => `
+        <article class="articulo-catalogo">
+            <img class="imagen-catalogo" src="${producto.imagen}" alt="${producto.nombre}">
+            <h4>${producto.nombre}</h4>
+            <p>$${producto.precio.toLocaleString('es-AR')}</p>
+            <a href="producto.html?id=${producto.id}" class="enlace-ver-producto" data-id="${producto.id}">Ver producto</a>
+            <button type="button" class="boton-agregar-producto" data-id="${producto.id}">Añadir al carrito</button>
+        </article>
+    `).join('')
+}
+
+function filtrarPorTalle(productos, talle) {
+    return !talle || talle === 'todos' ? productos : productos.filter((p) => p.talles.includes(talle.toUpperCase()))
+}
+
+function filtrarPorCategoria(productos, categoria) {
+    return !categoria || categoria === 'todas' ? productos : productos.filter((p) => p.categoria === categoria.toLowerCase())
+}
+
+function filtrarPorTexto(productos, texto) {
+    const consulta = texto.trim().toLocaleLowerCase('es')
+    if (!consulta) return productos
+    return productos.filter((p) => `${p.nombre} ${p.descripcion} ${p.categoria} ${p.colores.join(' ')}`.toLocaleLowerCase('es').includes(consulta))
+}
+
+function normalizarCarrito(carritoGuardado) {
+    if (!Array.isArray(carritoGuardado)) return []
+    const lineas = []
+    carritoGuardado.forEach((articulo) => {
+        // Formato anterior: cada unidad era solamente el ID numérico del producto.
+        const linea = typeof articulo === 'number'
+            ? { id: articulo, talle: 'Sin especificar', color: 'Sin especificar', cantidad: 1 }
+            : { id: Number(articulo.id), talle: articulo.talle || 'Sin especificar', color: articulo.color || 'Sin especificar', cantidad: Math.max(1, Number(articulo.cantidad) || 1) }
+        const existente = lineas.find((item) => item.id === linea.id && item.talle === linea.talle && item.color === linea.color)
+        if (existente) existente.cantidad += linea.cantidad
+        else if (Number.isFinite(linea.id)) lineas.push(linea)
     })
-
-    const detalleHTML = `
-        <!-- Imagenes -->
-        <section class="producto-imagenes">
-            <img src="${producto.imagen}" alt="${producto.nombre}">
-        </section>
-
-        <!-- Datos y configuracion de compra -->
-        <section class="producto-datos">
-            <h2>${producto.nombre}</h2>
-            <p class="precio">Precio: $${producto.precio}</p>
-            <p class="cuotas">3 cuotas sin interés</p>
-            <p><strong>Stock disponible</strong></p>
-
-            <p class="descripcion">Descripcion: ${producto.descripcion}</p>
-
-            <!-- Formulario de compra -->
-            <form class="form-compra" action="carrito.html" method="get">
-                <input type="hidden" name="id" value="${producto.id}">
-                
-                <label for="select-color">Color:</label>
-                <select id="select-color" name="color">
-                    <option value="negro">Negro</option>
-                    <option value="blanco">Blanco</option>
-                    <option value="gris">Gris</option>
-                </select>
-                
-                <label for="select-talle">Talle:</label>
-                <select id="select-talle" name="talle" required>
-                    ${opcionesTalles}
-                </select>
-                
-                <label for="input-cantidad">Cantidad:</label>
-                <input type="number" id="input-cantidad" name="cantidad" value="1" min="1" required>
-                
-                <button type="submit" id="boton-agregar-detalle" data-id="${producto.id}">Agregar al carrito</button>
-            </form>
-
-            <!-- Guia de medidas -->
-            <section class="guia-medidas">
-                <h3>Tabla de Medidas</h3>
-                <table>
-                    <caption>Medidas en centímetros</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">Talle</th>
-                            <th scope="col">Ancho</th>
-                            <th scope="col">Largo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>S</td>
-                            <td>54 cm</td>
-                            <td>72 cm</td>
-                        </tr>
-                        <tr>
-                            <td>M</td>
-                            <td>56 cm</td>
-                            <td>74 cm</td>
-                        </tr>
-                        <tr>
-                            <td>L</td>
-                            <td>58 cm</td>
-                            <td>76 cm</td>
-                        </tr>
-                        <tr>
-                            <td>XL</td>
-                            <td>60 cm</td>
-                            <td>78 cm</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-            <!-- Calculo de Envio -->
-            <section class="calculo-envio">
-                <h3>Calcular Envío</h3>
-                <form class="form-envio" action="#" method="get">
-                    <label for="cp-envio">Código Postal:</label>
-                    <input type="text" id="cp-envio" name="cp" placeholder="5000">
-                    <button type="button">Calcular</button>
-                </form>
-            </section>
-        </section>
-    `
-
-    contenedor.innerHTML = detalleHTML
-
-    // Actualizar nombre del producto en el breadcrumb y título
-    if (typeof document !== 'undefined') {
-        const rutaProducto = document.getElementById('ruta-producto')
-        if (rutaProducto) {
-            rutaProducto.textContent = producto.nombre
-        }
-
-        document.title = `cba.urban - ${producto.nombre}`
-        const tituloDetalleH1 = document.getElementById('titulo-detalle-h1')
-        if (tituloDetalleH1) {
-            tituloDetalleH1.textContent = `Detalle del producto: ${producto.nombre}`
-        }
-    }
+    return lineas
 }
 
-function obtenerIdProductoSeleccionado() {
-    try {
-        const parametros = new URLSearchParams(window.location.search)
-        const idParam = parametros.get('id')
-        if (idParam) {
-            return parseInt(idParam)
-        }
-    } catch (error) {
-        console.log(error)
-    }
-
-    try {
-        const idGuardado = localStorage.getItem('productoSeleccionado')
-        if (idGuardado) {
-            return parseInt(idGuardado)
-        }
-    } catch (error) {
-        console.log(error)
-    }
-
-    return 1
-}
-
-// Funciones para persistencia y lectura del carrito
 function obtenerCarrito() {
-    try {
-        const guardado = localStorage.getItem('carrito')
-        if (guardado) {
-            return JSON.parse(guardado)
-        }
-    } catch (error) {
-        console.log(error)
-    }
-    return []
+    try { return normalizarCarrito(JSON.parse(localStorage.getItem('carrito') || '[]')) }
+    catch (error) { console.error('No se pudo leer el carrito:', error); return [] }
 }
 
 function guardarCarrito(carrito) {
-    try {
-        localStorage.setItem('carrito', JSON.stringify(carrito))
-    } catch (error) {
-        console.log(error)
-    }
+    try { localStorage.setItem('carrito', JSON.stringify(normalizarCarrito(carrito))) }
+    catch (error) { console.error('No se pudo guardar el carrito:', error) }
 }
 
-function vaciarCarrito() {
-    try {
-        localStorage.removeItem('carrito')
-    } catch (error) {
-        console.log(error)
-    }
+function vaciarCarrito() { localStorage.removeItem('carrito') }
+
+function renderizarDetalleProducto(contenedor, producto) {
+    const opcionesTalles = producto.talles.map((talle) => `<option value="${talle}">${talle}</option>`).join('')
+    const opcionesColores = (producto.colores || ['Único']).map((color) => `<option value="${color}">${color}</option>`).join('')
+    contenedor.innerHTML = `
+        <section class="producto-imagenes"><img src="${producto.imagen}" alt="${producto.nombre}"></section>
+        <section class="producto-datos">
+            <h2>${producto.nombre}</h2><p class="precio">Precio: $${producto.precio.toLocaleString('es-AR')}</p>
+            <p class="cuotas">3 cuotas sin interés</p><p class="descripcion">${producto.descripcion}</p>
+            <form class="form-compra">
+                <label for="select-color">Color:</label><select id="select-color" name="color" required>${opcionesColores}</select>
+                <label for="select-talle">Talle:</label><select id="select-talle" name="talle" required><option value="">Seleccionar talle</option>${opcionesTalles}</select>
+                <label for="input-cantidad">Cantidad:</label><input type="number" id="input-cantidad" name="cantidad" value="1" min="1" step="1" required>
+                <button type="submit">Agregar al carrito</button>
+            </form>
+        </section>`
+    const ruta = document.getElementById('ruta-producto')
+    if (ruta) ruta.textContent = producto.nombre
+    document.title = `cba.urban - ${producto.nombre}`
 }
 
-export {
-    renderizarCatalogo,
-    renderizarDetalleProducto,
-    obtenerIdProductoSeleccionado,
-    filtrarPorTalle,
-    filtrarPorCategoria,
-    filtrarPorPrecio,
-    obtenerCarrito,
-    guardarCarrito,
-    vaciarCarrito
+function obtenerIdProductoSeleccionado() {
+    const id = Number(new URLSearchParams(location.search).get('id') || localStorage.getItem('productoSeleccionado'))
+    return Number.isInteger(id) && id > 0 ? id : null
 }
+
+export { renderizarCatalogo, filtrarPorTalle, filtrarPorCategoria, filtrarPorTexto, normalizarCarrito, obtenerCarrito, guardarCarrito, vaciarCarrito, renderizarDetalleProducto, obtenerIdProductoSeleccionado }

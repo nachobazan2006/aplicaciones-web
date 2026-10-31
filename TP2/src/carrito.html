@@ -51,8 +51,8 @@
             <h3>MEDIOS DE ENVÍO</h3>
             <form action="carrito.html" method="post">
                 <label for="cp-calc">Código Postal:</label>
-                <input type="text" id="cp-calc" name="cp" value="5000">
-                <button type="button">Calcular</button>
+                <input type="text" id="cp-calc" name="cp" inputmode="numeric" value="5000" pattern="[0-9]{4,8}" required aria-describedby="costo-envio-texto">
+                <button type="button" id="boton-calcular-envio">Calcular</button>
             </form>
             <p id="costo-envio-texto">Costo de envío estimado: $0</p>
         </section>
@@ -108,12 +108,12 @@
 
                 <div>
                     <label for="nom-comprador">Nombre completo:</label>
-                    <input type="text" id="nom-comprador" name="nombre" required>
+                    <input type="text" id="nom-comprador" name="nombre" minlength="3" required>
                 </div>
 
                 <div>
                     <label for="dir-comprador">Dirección de entrega:</label>
-                    <input type="text" id="dir-comprador" name="direccion" required>
+                    <input type="text" id="dir-comprador" name="direccion" minlength="5" required>
                 </div>
 
                 <div>
