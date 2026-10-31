@@ -1,10 +1,12 @@
 async function cargarProductos() {
-    const respuesta = await fetch(new URL('../datos/productos.json', import.meta.url))
+    const respuesta = await fetch('./recursos/datos/productos.json')
+
     if (!respuesta.ok) {
-        throw new Error(`No se pudo cargar el catálogo (${respuesta.status}).`)
+        throw new Error(`No se pudieron cargar los productos: ${respuesta.status}`)
     }
 
     const productos = await respuesta.json()
+
     if (!Array.isArray(productos)) {
         throw new Error('El archivo de productos no contiene una lista válida.')
     }
