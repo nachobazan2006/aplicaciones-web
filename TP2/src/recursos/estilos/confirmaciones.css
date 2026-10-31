@@ -1,15 +1,5 @@
-/* =====================================================
-   Estilos propios de la página de confirmación.
-   Se enlaza DESPUÉS de index.css.
-   El header y el footer no se tocan: se ven igual que en el resto.
-   ===================================================== */
-
-/* En el index el contenido es ancho; acá lo achicamos y lo dejamos
-   como una tarjeta centrada con borde.
-   El cambio se hizo porque este main usaba la misma clase que el index
-   (contenido-principal) y le ganaba solo por estar cargado después. Ahora tiene
-   su propia clase, .contenido-confirmacion, como las demás páginas. */
-/* main.contenido-principal { */
+/* aca lo achicamos y lo dejamos
+   como una tarjeta centrada con borde.*/
 .contenido-confirmacion {
     max-width: 600px;
     margin: 64px auto;
@@ -17,33 +7,17 @@
     text-align: center;
     border: 1px solid #000000;
 }
-
-/* Acá se cambió main h2 por la clase del main (antes era una regla de tipo
-   puesta después de una de clase). */
-/* main h2 { */
 .contenido-confirmacion h2 {
     font-size: 2rem;
     line-height: 1.2;
     margin-bottom: 16px;
 }
 
-/* main p { */
 .contenido-confirmacion p {
     margin-bottom: 12px;
 }
 
-/* El aviso es el 4.º párrafo del main. Lo elegimos por su lugar (nth-of-type)
-   para no ponerle una clase. Letra más chica y una línea que lo separa. */
-/* main p:nth-of-type(4) { */
-.contenido-confirmacion p:nth-of-type(4) {
-    font-size: 0.85rem;
-    margin: 24px 0;
-    padding-top: 16px;
-    border-top: 1px solid #000000;
-}
-
-/* Botón "Seguir comprando". Se agregó porque este estilo lo daba index.css con
-   main.contenido-principal a, y al cambiar la clase del main hay que ponerlo acá. */
+/* Boton Seguir comprando*/
 .contenido-confirmacion a {
     display: inline-block;
     padding: 10px 24px;
@@ -59,15 +33,13 @@
     color: #000000;
 }
 
-/* Celular: tarjeta con menos margen para aprovechar la pantalla */
+
 @media (max-width: 600px) {
-    /* main.contenido-principal { */
     .contenido-confirmacion {
         margin: 32px 16px;
         padding: 32px 20px;
     }
 
-    /* main h2 { */
     .contenido-confirmacion h2 {
         font-size: 1.6rem;
     }

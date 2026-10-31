@@ -282,3 +282,40 @@
         grid-column: auto;
     }
 }
+
+/* Diálogo modal para eventos de carrito */
+dialog
+{
+    margin: auto;
+    padding: 24px;
+    border: 1px solid #25231f;
+    background-color: #ffffff;
+    max-width: 420px;
+    box-shadow: 0 10px 25px rgba(37, 35, 31, .18);
+}
+
+dialog::backdrop
+{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog h2
+{
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+
+dialog p
+{
+    margin-bottom: 20px;
+}
+
+.articulo-catalogo button
+{
+    margin-top: 8px;
+    margin-right: 8px;
+    margin-left: 8px;
+    margin-bottom: 12px;
+}

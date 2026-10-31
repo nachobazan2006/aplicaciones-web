@@ -6,6 +6,8 @@
     <title>cba.urban - Carrito de Compras</title>
     <link rel="stylesheet" href="./recursos/estilos/index.css">
     <link rel="stylesheet" href="./recursos/estilos/carrito.css">
+    <!-- Modulo js para renderizado dinamico del carrito -->
+    <script type="module" src="./recursos/js/carrito.js"></script>
 </head>
 <body>
 
@@ -19,7 +21,7 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catalogo</a></li>
                 <li><a href="ofertas.html">Ofertas</a></li>
-
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
         <form action="./catalogo.html" method="get">
@@ -29,27 +31,19 @@
         </form>
         <ul>
             <li><a href="./perfil.html"><img src="./recursos/imagenes/usuario.svg" alt="Mi perfil"></a></li>
-            <li><a href="./carrito.html"><img src="./recursos/imagenes/carrito-de-compras.svg" alt="Carrito"><span>(1)</span></a></li>
+            <li><a href="./carrito.html"><img src="./recursos/imagenes/carrito-de-compras.svg" alt="Carrito"><span id="productos-seleccionados">(0)</span></a></li>
         </ul>
     </header>
 
     <main class="contenido-carrito">
-        <h2>MI CARRITO (1)</h2>
+        <h2 id="titulo-carrito">MI CARRITO (0)</h2>
 
-        <!-- Artículos en el carrito -->
+        <!-- Artículos en el carrito (renderizados dinámicamente) -->
         <section class="productos-seleccionados">
             <h3>Productos seleccionados</h3>
-
-            <article>
-                <img src="./recursos/imagenes/campera-real-tree.png" alt="Campera real tree">
-                <h4>CAMPERA Real tree (L)</h4>
-                <p>Precio: $40.000</p>
-                <form action="carrito.html" method="post">
-                    <label for="cant-art-1">Cantidad:</label>
-                    <input type="number" id="cant-art-1" name="cantidad" value="1" min="1">
-                    <button type="button">Eliminar</button>
-                </form>
-            </article>
+            <div id="contenedor-carrito">
+                <!-- Se inyecta con JavaScript -->
+            </div>
         </section>
 
         <!-- Medios de envío -->
@@ -60,32 +54,32 @@
                 <input type="text" id="cp-calc" name="cp" value="5000">
                 <button type="button">Calcular</button>
             </form>
-            <p>Costo de envío estimado: $3.500</p>
+            <p id="costo-envio-texto">Costo de envío estimado: $0</p>
         </section>
 
-        <!-- Sugeridos / Cross-selling -->
+        <!-- Sugeridos -->
         <section class="te-puede-interesar">
             <h3>TE PUEDE INTERESAR</h3>
 
             <article>
                 <img src="./recursos/imagenes/cargo-urban-negro.png" alt="Pantalón Cargo">
                 <h4>PANTALÓN CARGO</h4>
-                <p>$55.000</p>
-                <button type="button">Agregar</button>
+                <p>$20.000</p>
+                <button type="button" class="boton-sugerido" data-id="2">Agregar</button>
             </article>
 
             <article>
                 <img src="./recursos/imagenes/roja-urban.png" alt="Remera Roja">
                 <h4>REMERA ROJA</h4>
-                <p>$37.000</p>
-                <button type="button">Agregar</button>
+                <p>$15.000</p>
+                <button type="button" class="boton-sugerido" data-id="10">Agregar</button>
             </article>
 
             <article>
                 <img src="./recursos/imagenes/verde-urban.png" alt="Remera Verde Urban">
                 <h4>REMERA VERDE URBAN</h4>
-                <p>$70.000</p>
-                <button type="button">Agregar</button>
+                <p>$21.000</p>
+                <button type="button" class="boton-sugerido" data-id="11">Agregar</button>
             </article>
         </section>
 
@@ -96,42 +90,40 @@
                 <tbody>
                     <tr>
                         <th scope="row">Subtotal (sin envío):</th>
-                        <td>$40.000</td>
+                        <td id="resumen-subtotal">$0</td>
                     </tr>
                     <tr>
                         <th scope="row">Envío:</th>
-                        <td>$3.500</td>
+                        <td id="resumen-envio">$0</td>
                     </tr>
                     <tr>
                         <th scope="row">Total:</th>
-                        <td>$43.500</td>
+                        <td id="resumen-total">$0</td>
                     </tr>
                 </tbody>
             </table>
 
-            <form action="confirmacion.html" method="post">
-            
-                    <legend>Datos para el despacho</legend>
+            <form id="form-checkout" action="confirmacion.html" method="get">
+                <legend>Datos para el despacho</legend>
 
-                    <div>
-                        <label for="nom-comprador">Nombre completo:</label>
-                        <input type="text" id="nom-comprador" name="nombre">
-                    </div>
+                <div>
+                    <label for="nom-comprador">Nombre completo:</label>
+                    <input type="text" id="nom-comprador" name="nombre" required>
+                </div>
 
-                    <div>
-                        <label for="dir-comprador">Dirección de entrega:</label>
-                        <input type="text" id="dir-comprador" name="direccion">
-                    </div>
+                <div>
+                    <label for="dir-comprador">Dirección de entrega:</label>
+                    <input type="text" id="dir-comprador" name="direccion" required>
+                </div>
 
-                    <div>
-                        <label for="medio-pago">Método de pago:</label>
-                        <select id="medio-pago" name="pago">
-                            <option value="transferencia">Transferencia bancaria</option>
-                            <option value="tarjeta">Tarjeta de crédito / débito</option>
-                            <option value="mercadopago">Mercado Pago</option>
-                        </select>
-                    </div>
-                
+                <div>
+                    <label for="medio-pago">Método de pago:</label>
+                    <select id="medio-pago" name="pago">
+                        <option value="transferencia">Transferencia bancaria</option>
+                        <option value="tarjeta">Tarjeta de crédito / débito</option>
+                        <option value="mercadopago">Mercado Pago</option>
+                    </select>
+                </div>
 
                 <button type="submit">INICIAR COMPRA</button>
             </form>
@@ -144,7 +136,7 @@
             <ul>
                 <li>Política de Privacidad</li>
                 <li>Términos y Condiciones</li>
-                <li>Contacto</li>
+                <li><a href="contacto.html">Contacto</a></li>
                 <li>Sobre Nosotros</li>
                 <li>Preguntas Frecuentes</li>
             </ul>

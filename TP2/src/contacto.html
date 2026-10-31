@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cba.urban - Contacto</title>
+    <link rel="stylesheet" href="./recursos/estilos/index.css">
+    <link rel="stylesheet" href="./recursos/estilos/contacto.css">
+    <script type="module" src="./recursos/js/carrito.js"></script>
+</head>
+
+<body>
+
+    
+    <header class="encabezado-principal">
+        <a href="index.html"><img src="./recursos/imagenes/logo-urban.png" alt="Logo de el emprendimiento"></a>
+        <h1>Contacto y consultas - cba.urban</h1>
+
+        <!-- menu hamburguesa -->
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" aria-label="Abrir o cerrar menú">
+            <img src="./recursos/imagenes/menu-hamburguesa.svg" alt="Menú">
+        </label>
+
+        
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catalogo</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+            </ul>
+        </nav>
+
+       
+        <form action="./catalogo.html" method="get">
+            <label for="buscar-nav">Buscar:</label>
+            <input type="search" id="buscar-nav" name="q" placeholder="Buscar prendas...">
+            <button type="submit">Buscar</button>
+        </form>
+
+        
+        <ul>
+            <li>
+                <a href="./perfil.html">
+                    <img src="./recursos/imagenes/usuario.svg" alt="Mi perfil">
+                </a>
+            </li>
+            <li>
+                <a href="./carrito.html">
+                    <img src="./recursos/imagenes/carrito-de-compras.svg" alt="Carrito">
+                    <span id="productos-seleccionados">(0)</span>
+                </a>
+            </li>
+        </ul>
+    </header>
+
+    <main class="contenido-contacto">
+        <h2>CONTACTO Y CONSULTAS</h2>
+
+        <!-- formulario de contacto -->
+        <section>
+            <h3>Escribinos</h3>
+            <p>Completá el siguiente formulario y nos pondremos en contacto a la brevedad.</p>
+
+            <form class="formulario-contacto" action="confirmacion-contacto.html" method="get">
+                <div>
+                    <label for="id-nombre">Nombre y Apellido:</label>
+                    <input type="text" name="nombre" id="id-nombre" required placeholder="Tu nombre completo">
+                </div>
+
+                <div>
+                    <label for="id-email">Correo Electrónico:</label>
+                    <input type="email" name="email" id="id-email" required placeholder="tunombre@ejemplo.com">
+                </div>
+
+                <div>
+                    <label for="id-tipo-consulta">Tipo de consulta:</label>
+                    <select name="tipo-consulta" id="id-tipo-consulta">
+                        <option value="general">Consulta general</option>
+                        <option value="pedido">Estado de mi pedido</option>
+                        <option value="cambio">Cambios y devoluciones</option>
+                        <option value="mayorista">Venta mayorista</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="id-comentario">Comentario o mensaje:</label>
+                    <textarea name="comentario" id="id-comentario" rows="5" required placeholder="Escribí tu mensaje aquí..."></textarea>
+                </div>
+
+                <div class="botones-form">
+                    <button type="reset">Limpiar</button>
+                    <button type="submit">Enviar consulta</button>
+                </div>
+            </form>
+        </section>
+
+        <!--Ubicacion -->
+        <section class="ubicacion-contacto">
+            <h3>Dónde estamos</h3>
+            <p>Caseros 100. Bº Centro. Córdoba Capital</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.8698411162436!2d-64.18888832428232!3d-31.417711996315624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a28382167cfb%3A0x1ef3ae3cd0407f65!2sCaseros%20100%2C%20X5000AHD%20C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1788179977394!5m2!1ses-419!2sar" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Mapa del local en Córdoba"></iframe>
+        </section>
+
+    </main>
+
+    
+    <footer class="pie-de-pagina-principal">
+        <nav aria-label="Enlaces institucionales">
+            <ul>
+                <li>Política de Privacidad</li>
+                <li>Términos y Condiciones</li>
+                <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+                <li>Sobre Nosotros</li>
+                <li>Preguntas Frecuentes</li>
+            </ul>
+        </nav>
+        <p>&copy; 2026 cba.urban. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+
+</html>
